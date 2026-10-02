@@ -1,0 +1,5 @@
+target: /home/user/claude-skills/web-ui-harness/experiments/runs/T3-C-1/index.html
+widths swept: 20 (320-1440, step 64, + shots)
+  touch-target<24px: at 375, 384, 448, 512, 576px
+impeccable detect: {"low-contrast":5}
+report: /home/user/claude-skills/web-ui-harness/experiments/runs/T3-C-1/qa/report.json

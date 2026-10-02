@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="설비 위험도 목록과 추이 그래프를 보여주는 대시보드 화면">
+<rect width="800" height="500" rx="12" fill="#f4f5f7"/><rect x="0" y="0" width="800" height="44" rx="12" fill="#e6e8ec"/>
+<circle cx="24" cy="22" r="5" fill="#c5c9d0"/><circle cx="42" cy="22" r="5" fill="#c5c9d0"/><circle cx="60" cy="22" r="5" fill="#c5c9d0"/>
+<g font-family="Pretendard, sans-serif" font-size="14" fill="#2b2f36"><text x="32" y="82" font-weight="700" font-size="16">설비 위험도</text>
+<text x="32" y="118">사출기 07</text><text x="32" y="158">프레스 12</text><text x="32" y="198">컨베이어 03</text><text x="32" y="238">사출기 02</text><text x="32" y="278">용접 로봇 05</text></g>
+<g><rect x="180" y="106" width="220" height="12" rx="6" fill="#dfe2e7"/><rect x="180" y="106" width="190" height="12" rx="6" fill="#d9534f"/>
+<rect x="180" y="146" width="220" height="12" rx="6" fill="#dfe2e7"/><rect x="180" y="146" width="140" height="12" rx="6" fill="#e8a33d"/>
+<rect x="180" y="186" width="220" height="12" rx="6" fill="#dfe2e7"/><rect x="180" y="186" width="90" height="12" rx="6" fill="#4a8f6a"/>
+<rect x="180" y="226" width="220" height="12" rx="6" fill="#dfe2e7"/><rect x="180" y="226" width="60" height="12" rx="6" fill="#4a8f6a"/>
+<rect x="180" y="266" width="220" height="12" rx="6" fill="#dfe2e7"/><rect x="180" y="266" width="40" height="12" rx="6" fill="#4a8f6a"/></g>
+<rect x="440" y="64" width="330" height="220" rx="8" fill="#fff"/>
+<polyline points="460,250 500,240 540,244 580,226 620,200 660,170 700,140 750,100" fill="none" stroke="#2b5fd9" stroke-width="3"/>
+<line x1="460" y1="250" x2="750" y2="250" stroke="#dfe2e7"/><g font-family="Pretendard, sans-serif" font-size="12" fill="#6b7280"><text x="460" y="80">사출기 07 · 위험도 추이</text></g>
+<rect x="32" y="320" width="738" height="150" rx="8" fill="#fff"/><g font-family="Pretendard, sans-serif" font-size="13" fill="#2b2f36"><text x="52" y="350" font-weight="700">원인 후보</text><text x="52" y="380">1. 유압 펌프 압력 변동 (가능성 높음)</text><text x="52" y="408">2. 오일 필터 막힘</text><text x="52" y="436">3. 센서 보정 편차</text></g></svg>
