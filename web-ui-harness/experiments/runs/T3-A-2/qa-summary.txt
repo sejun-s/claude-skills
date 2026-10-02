@@ -1,0 +1,6 @@
+target: /home/user/claude-skills/web-ui-harness/experiments/runs/T3-A-2/index.html
+widths swept: 20 (320-1440, step 64, + shots)
+  korean-orphan-line: at 320, 375, 384, 576px
+  touch-target<24px: at 384, 448, 512, 576px
+impeccable detect: {}
+report: /home/user/claude-skills/web-ui-harness/experiments/runs/T3-A-2/qa/report.json
