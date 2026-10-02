@@ -38,6 +38,11 @@
 - 제목 줄바꿈 측정: `node skills/ko-heading-wrap/scripts/heading-lines.mjs <html> [--keep "구1,구2"] --widths 320,375,768,1024,1440` (`--keep` 없으면 구 쪼개짐은 검사하지 않음). 회귀 테스트: `skills/ko-heading-wrap/tests/run.sh`.
 - 환경 전제: Playwright 전역 설치, Chromium `/opt/pw-browsers/chromium`(root에서 `--no-sandbox`), 한국어 폰트는 `experiments/tools/fetch-fonts.sh`(Pretendard).
 
+## 버전 고정점 (git 태그는 이 세션에서 푸시 권한이 없어 커밋 SHA로 기록)
+- benchmark 콘텐츠 동결(T1/T3/T5 v0.1): 커밋 `af15dfb` (로컬 태그 `benchmark-v0.1-frozen`)
+- ko-heading-wrap v0.2.0 고정(T3b·T5 실험에 사용): 커밋 `02b91ea` (로컬 태그 `ko-heading-wrap-v0.2.0`)
+- 재현: `git checkout <SHA> -- web-ui-harness/skills/ko-heading-wrap`
+
 ## 알려진 한계
 - 모든 에이전트·proxy 평가자가 같은 모델 계열. gold 구와 의미 단위 판정은 Claude의 판단. 표본은 조건당 3회, task 4개.
 - B는 스킬을 설치한 것이 아니라 읽고 따르게 한 것이며, Impeccable의 일부 단계(`concept-seed`, `context`)는 생략·degraded.
