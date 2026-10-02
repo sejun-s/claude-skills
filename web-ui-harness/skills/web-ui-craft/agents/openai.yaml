@@ -1,0 +1,4 @@
+interface:
+  display_name: "Web UI Craft"
+  short_description: "Distinctive web UI with rendered checks and Korean type"
+  default_prompt: "Use $web-ui-craft to build or refine this web UI and verify the rendered result."
