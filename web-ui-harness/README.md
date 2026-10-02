@@ -29,6 +29,9 @@
 - 한국어 어절 중간 끊김은 본문/제목에서는 `keep-all`로 6/6 해결, 표 셀에서는 조건 무관 발생.
 - 에이전트 자기 보고는 반복해서 실측과 달랐다(문구 추가, "0건" 보고, 수정 후 재확인). 모든 사실은 렌더·측정으로 검증.
 
+## 역할 분담 (2026-10-02~)
+- 구현·실험: ChatGPT(인수인계 문서 `HANDOFF-TO-GPT.md`) / **QA: Claude**(`QA-CHECKLIST.md`) / 최종 판정: 사용자.
+
 ## 사용자가 해야 할 일 (최종 판정)
 1. `experiments/eval/human-blind-headings/index.html` — 12쌍, 약 5분. 제목 줄바꿈이 더 자연스러운 쪽 선택. **이 결과가 ko-heading-wrap 유지/삭제를 결정.**
 2. `experiments/eval/human-blind/index.html` — 17쌍, 약 15분(`전체 보기`는 선택). B(스킬 스택) vs C(+확장), A 앵커 3쌍, 일관성 점검용 재출제 2쌍.
