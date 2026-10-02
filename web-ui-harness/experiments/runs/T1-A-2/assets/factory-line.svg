@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" role="img" aria-label="생산 라인 단순 일러스트">
+<rect width="960" height="320" fill="#eef0f3"/><rect y="220" width="960" height="12" fill="#c5c9d0"/>
+<g fill="#cfd3da"><rect x="60" y="130" width="120" height="90" rx="6"/><rect x="260" y="100" width="140" height="120" rx="6"/><rect x="480" y="140" width="120" height="80" rx="6"/><rect x="680" y="110" width="160" height="110" rx="6"/></g>
+<g fill="#8b919b"><rect x="90" y="100" width="60" height="30"/><rect x="310" y="70" width="40" height="30"/><rect x="520" y="110" width="40" height="30"/><rect x="740" y="80" width="40" height="30"/></g>
+<circle cx="100" cy="250" r="10" fill="#2b5fd9"/><circle cx="330" cy="250" r="10" fill="#2b5fd9"/><circle cx="540" cy="250" r="10" fill="#2b5fd9"/><circle cx="760" cy="250" r="10" fill="#d9534f"/></svg>

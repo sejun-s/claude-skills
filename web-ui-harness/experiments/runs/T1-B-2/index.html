@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>알파로그 프리딕트 | 설비 로그 기반 예지 정비</title>
+<meta name="description" content="공장 설비의 로그와 센서 데이터를 분석해, 가동이 멈추기 전에 점검 시점을 알려주는 예지 정비 소프트웨어.">
+<style>
+@font-face{font-family:Pretendard;font-weight:400;font-display:swap;src:url(fonts/Pretendard-Regular.woff2) format("woff2")}
+@font-face{font-family:Pretendard;font-weight:500;font-display:swap;src:url(fonts/Pretendard-Medium.woff2) format("woff2")}
+@font-face{font-family:Pretendard;font-weight:600;font-display:swap;src:url(fonts/Pretendard-SemiBold.woff2) format("woff2")}
+@font-face{font-family:Pretendard;font-weight:700;font-display:swap;src:url(fonts/Pretendard-Bold.woff2) format("woff2")}
+:root{
+  --paper:#f3f5f6; --sheet:#fbfcfc; --ink:#16202a; --ink-2:#4a5561; --rule:#cdd3d9;
+  --steel:#1f4468; --steel-d:#163350; --signal:#c2410c; --night:#14202c;
+  --f:Pretendard,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --gut:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--f);background:var(--paper);color:var(--ink);line-height:1.65;font-size:1.0625rem;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
+::selection{background:var(--steel);color:#fff}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--signal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+h1,h2,h3{text-wrap:balance;line-height:1.25;letter-spacing:-.02em}
+h1{font-size:clamp(2.1rem,5.2vw,3.5rem);font-weight:700;letter-spacing:-.03em;line-height:1.18}
+h2{font-size:clamp(1.65rem,3.4vw,2.35rem);font-weight:700}
+h3{font-size:1.25rem;font-weight:600}
+p{max-width:36em}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;font:600 1rem var(--f);border:2px solid var(--steel);background:var(--steel);color:#fff;text-decoration:none;border-radius:4px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn:hover{background:var(--steel-d);border-color:var(--steel-d)}
+.btn.ghost{background:transparent;color:var(--steel)}
+.btn.ghost:hover{background:var(--steel);color:#fff}
+.btn.sm{min-height:44px;padding:0 20px;font-size:.95rem}
+
+/* header */
+header{background:var(--sheet);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:10}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.2rem;text-decoration:none;letter-spacing:-.02em}
+.nav{display:flex;align-items:center;gap:32px}
+.nav a:not(.btn){text-decoration:none;font-weight:500;color:var(--ink-2);padding:8px 0;border-bottom:2px solid transparent}
+.nav a:not(.btn):hover{color:var(--ink);border-color:var(--signal)}
+.menu{display:none;position:relative}
+.menu summary{list-style:none;cursor:pointer;min-height:44px;display:flex;align-items:center;padding:0 12px;font-weight:600;border:1px solid var(--rule);border-radius:4px;background:var(--sheet)}
+.menu summary::-webkit-details-marker{display:none}
+.menu ul{position:absolute;right:0;top:calc(100% + 8px);background:var(--sheet);border:1px solid var(--rule);border-radius:6px;min-width:180px;list-style:none;padding:6px;box-shadow:0 8px 24px -8px rgba(22,32,42,.25)}
+.menu li a{display:block;padding:12px 14px;text-decoration:none;font-weight:500}
+.menu li a:hover{background:var(--paper)}
+
+/* hero */
+.hero{padding:clamp(40px,7vw,88px) 0 clamp(40px,6vw,72px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(32px,5vw,72px);align-items:center}
+.hero p.lead{margin-top:24px;font-size:1.15rem;color:var(--ink-2)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+figure.sheet{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:10px;box-shadow:0 18px 40px -22px rgba(22,32,42,.35)}
+figure.sheet img{border-radius:3px;width:100%}
+figcaption{display:flex;justify-content:space-between;gap:12px;padding:12px 6px 4px;font-size:.875rem;color:var(--ink-2)}
+figcaption b{font-weight:600;color:var(--signal)}
+.rise{animation:rise .9s cubic-bezier(.16,1,.3,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* band + metrics */
+.band{position:relative;height:clamp(150px,22vw,280px);overflow:hidden;background:#eef0f3}
+.band img{width:100%;height:100%;object-fit:cover;object-position:center 60%}
+.metrics{background:var(--sheet);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.metrics dl{display:grid;grid-template-columns:repeat(3,1fr)}
+.metrics .m{padding:36px clamp(16px,3vw,40px);border-left:1px solid var(--rule)}
+.metrics .m:first-child{border-left:0;padding-left:0}
+.metrics dt{order:2;color:var(--ink-2);font-size:.95rem;margin-top:6px}
+.metrics .m{display:flex;flex-direction:column}
+.metrics dd{order:1;font-size:clamp(2rem,3.6vw,2.75rem);font-weight:700;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums;color:var(--steel)}
+.metrics dd small{font-size:.5em;font-weight:600;margin-left:2px}
+.metrics .note{font-size:.85rem;color:var(--ink-2);padding:0 0 22px;max-width:none}
+
+section.s{padding:clamp(64px,9vw,120px) 0}
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px)}
+.split>div:first-child p{margin-top:16px;color:var(--ink-2)}
+
+/* features */
+.rows{list-style:none;padding:0;border-top:2px solid var(--ink)}
+.rows li{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid var(--rule)}
+.rows svg{width:44px;height:44px;color:var(--steel)}
+.rows p{margin-top:8px;color:var(--ink-2)}
+
+/* process */
+.proc{background:var(--sheet);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.steps{list-style:none;padding:0;margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s;position:relative}
+.steps li{position:relative;padding:36px 28px 0 0;border-top:2px solid var(--ink)}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;top:-17px;left:0;width:32px;height:32px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;font-size:.95rem;display:grid;place-items:center}
+.steps li:last-child::before{background:var(--signal)}
+.steps h3{margin-bottom:8px}
+.steps p{color:var(--ink-2);font-size:1rem}
+
+/* quote */
+.quote{background:var(--night);color:#e8edf1}
+.quote blockquote{max-width:880px}
+.quote q{display:block;quotes:none;font-size:clamp(1.5rem,3.2vw,2.3rem);font-weight:600;line-height:1.45;letter-spacing:-.02em;text-wrap:balance}
+.quote cite{display:block;margin-top:28px;font-style:normal;color:#aab6c2;font-size:1rem}
+.quote cite b{color:#fff;font-weight:600}
+.quote .mark{width:40px;height:4px;background:var(--signal);margin-bottom:32px}
+
+/* demo form */
+.demo form{background:var(--sheet);border:1px solid var(--rule);border-radius:0;box-shadow:0 18px 40px -26px rgba(22,32,42,.35);padding:clamp(20px,3vw,40px);display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.demo label{display:block;font-weight:600;font-size:.95rem;margin-bottom:6px}
+.demo input,.demo textarea{width:100%;min-height:48px;padding:10px 12px;font:400 1rem var(--f);color:var(--ink);background:#fff;border:1px solid #8b95a0;border-radius:4px}
+.demo textarea{min-height:104px;resize:vertical}
+.demo input:hover,.demo textarea:hover{border-color:var(--ink)}
+.demo input:focus-visible,.demo textarea:focus-visible{outline:3px solid var(--signal);outline-offset:1px;border-color:var(--ink)}
+.demo .full{grid-column:1/-1}
+.demo .fine{font-size:.875rem;color:var(--ink-2);max-width:none}
+.demo ul.promise{list-style:none;padding:0;margin-top:28px;display:grid;gap:12px}
+.demo ul.promise li{display:flex;gap:12px;align-items:baseline;color:var(--ink)}
+.demo ul.promise li::before{content:"";flex:none;width:10px;height:10px;border:2px solid var(--signal);transform:translateY(1px)}
+
+footer{background:var(--sheet);border-top:1px solid var(--rule);padding:48px 0 40px;font-size:.95rem;color:var(--ink-2)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px 48px}
+footer address{font-style:normal;line-height:1.9}
+footer strong{color:var(--ink);font-size:1.1rem}
+footer ul{list-style:none;padding:0;display:flex;gap:24px;flex-wrap:wrap}
+footer small{display:block;width:100%;padding-top:24px;border-top:1px solid var(--rule)}
+
+@media(max-width:900px){
+  .nav a:not(.btn){display:none}
+  .menu{display:block}
+  .nav{gap:10px}
+  .hero .wrap,.split{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr;row-gap:48px}
+}
+@media(max-width:600px){
+  .nav .btn{display:none}
+  .metrics dl{grid-template-columns:1fr}
+  .metrics .m,.metrics .m:first-child{border-left:0;border-top:1px solid var(--rule);padding:22px 0}
+  .metrics .m:first-child{border-top:0}
+  .steps{grid-template-columns:1fr;margin-left:16px;row-gap:0}
+  .steps li{border-top:0;border-left:2px solid var(--ink);padding:0 0 36px 32px}
+  .steps li:last-child{padding-bottom:0}
+  .steps li::before{top:0;left:-17px}
+  .rows li{grid-template-columns:1fr;gap:12px}
+  .demo form{grid-template-columns:1fr}
+  .cta .btn{width:100%}
+}
+@media(prefers-reduced-motion:reduce){.rise{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="알파로그 홈">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="5" fill="#1f4468"/><path d="M5 18h5l3-8 4 12 3-8h3" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      알파로그
+    </a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="#product">제품</a><a href="#cases">활용 사례</a><a href="#demo">가격</a><a href="#company">회사 소개</a>
+      <a class="btn sm" href="#demo">데모 신청</a>
+      <details class="menu"><summary>메뉴</summary>
+        <ul><li><a href="#product">제품</a></li><li><a href="#cases">활용 사례</a></li><li><a href="#demo">가격</a></li><li><a href="#company">회사 소개</a></li><li><a href="#demo">데모 신청</a></li></ul>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="rise">
+        <h1>설비 로그에서 고장의 징후를 먼저 찾아냅니다</h1>
+        <p class="lead">알파로그 프리딕트는 공장 설비의 로그와 센서 데이터를 분석해, 가동이 멈추기 전에 점검 시점을 알려주는 예지 정비 소프트웨어입니다.</p>
+        <div class="cta">
+          <a class="btn" href="#demo">데모 신청하기</a>
+          <a class="btn ghost" href="#cases">도입 사례 보기</a>
+        </div>
+      </div>
+      <figure class="sheet rise" style="animation-delay:.12s">
+        <img src="assets/product-ui.svg" width="800" height="500" alt="설비 위험도 목록과 추이 그래프를 보여주는 대시보드 화면">
+        <figcaption><span>설비별 위험도와 추이를 한 화면에서 확인</span><b>알파로그 프리딕트</b></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="band"><img src="assets/factory-line.svg" width="960" height="320" alt="생산 라인 일러스트"></div>
+
+  <section class="metrics" aria-label="도입 성과">
+    <div class="wrap">
+      <dl>
+        <div class="m"><dd>38<small>%</small></dd><dt>비계획 정지 시간 감소</dt></div>
+        <div class="m"><dd>4.2<small>일</small></dd><dt>이상 징후를 더 일찍 탐지 (평균)</dt></div>
+        <div class="m"><dd>3<small>주</small></dd><dt>평균 도입 기간</dt></div>
+      </dl>
+      <p class="note">비계획 정지 시간은 도입 6개월 후 평균이며, 12개 공장 기준입니다.</p>
+    </div>
+  </section>
+
+  <section class="s" id="product">
+    <div class="wrap split">
+      <div>
+        <h2>알리고, 정하고, 짚어줍니다</h2>
+        <p>고장이 난 뒤의 대응이 아니라, 고장 전에 무엇을 언제 점검할지 정리해 드립니다.</p>
+      </div>
+      <ul class="rows">
+        <li>
+          <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 24h9l5-14 7 26 5-17 3 5h9"/></svg>
+          <div><h3>이상 징후 조기 탐지</h3><p>설비별 정상 패턴을 학습해, 평소와 다른 로그가 나타나면 즉시 알립니다.</p></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="9" width="32" height="29" rx="3"/><path d="M6 18h32M14 5v7M30 5v7M15 28l5 5 9-9"/></svg>
+          <div><h3>점검 시점 추천</h3><p>고장 위험도와 생산 일정을 함께 고려해 가장 영향이 적은 점검 시간을 제안합니다.</p></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="22" r="4"/><circle cx="34" cy="10" r="4"/><circle cx="34" cy="22" r="4"/><circle cx="34" cy="34" r="4"/><path d="M14 22h6c4 0 6-12 10-12M20 22h10M20 22c4 0 6 12 10 12"/></svg>
+          <div><h3>원인 후보 제시</h3><p>과거 고장 이력과 비교해 가능성이 높은 원인을 우선순위로 보여줍니다.</p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="s proc" id="flow">
+    <div class="wrap">
+      <h2>연결부터 운영까지, 평균 3주</h2>
+      <ol class="steps">
+        <li><h3>연결</h3><p>기존 설비 로그와 PLC 데이터를 읽기 전용으로 연결합니다.</p></li>
+        <li><h3>학습</h3><p>최근 6개월 데이터로 설비별 정상 패턴을 학습합니다.</p></li>
+        <li><h3>검증</h3><p>2주간 예측 결과를 현장 담당자와 함께 확인합니다.</p></li>
+        <li><h3>운영</h3><p>이상 징후가 감지되면 담당자에게 알림과 점검 권고를 보냅니다.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="s quote" id="cases">
+    <div class="wrap">
+      <blockquote>
+        <div class="mark" aria-hidden="true"></div>
+        <q>점검 일정을 감으로 잡던 것에서 데이터로 근거를 대고 잡는 것으로 바뀌었습니다.</q>
+        <cite><b>김지훈</b> 가상정밀 생산기술팀 팀장</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="s demo" id="demo">
+    <div class="wrap split">
+      <div>
+        <h2>우리 공장 데이터로 먼저 확인해 보세요</h2>
+        <p>데모를 신청해 주시면 담당자가 연락드려 일정을 맞춥니다.</p>
+        <ul class="promise">
+          <li>설비 로그는 읽기 전용으로만 연결합니다</li>
+          <li>도입 기간은 평균 3주입니다</li>
+        </ul>
+      </div>
+      <form action="mailto:contact@alphalog.example" method="post" enctype="text/plain">
+        <div><label for="n">이름</label><input id="n" name="이름" autocomplete="name" required></div>
+        <div><label for="c">회사명</label><input id="c" name="회사명" autocomplete="organization" required></div>
+        <div><label for="e">업무 이메일</label><input id="e" name="이메일" type="email" autocomplete="email" required></div>
+        <div><label for="t">연락처</label><input id="t" name="연락처" type="tel" autocomplete="tel"></div>
+        <div class="full"><label for="m">관심 설비 또는 문의 내용</label><textarea id="m" name="문의"></textarea></div>
+        <div class="full"><button class="btn" type="submit">데모 신청하기</button></div>
+        <p class="fine full">제출하면 메일 앱이 열립니다. 입력하신 정보는 데모 안내 목적으로만 사용합니다. <a href="#company">개인정보처리방침</a></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer id="company">
+  <div class="wrap">
+    <address><strong>알파로그(주)</strong><br>서울특별시 성동구 가상로 100<br>02-000-0000 · <a href="mailto:contact@alphalog.example">contact@alphalog.example</a></address>
+    <ul><li><a href="#product">제품</a></li><li><a href="#cases">활용 사례</a></li><li><a href="#company">개인정보처리방침</a></li></ul>
+    <small>© 2026 Alphalog Inc.</small>
+  </div>
+</footer>
+</body>
+</html>

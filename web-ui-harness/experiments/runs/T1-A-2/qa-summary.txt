@@ -1,0 +1,5 @@
+target: /home/user/claude-skills/web-ui-harness/experiments/runs/T1-A-2/index.html
+widths swept: 20 (320-1440, step 64, + shots)
+mechanical defects: none
+impeccable detect: {"dark-glow":1}
+report: /home/user/claude-skills/web-ui-harness/experiments/runs/T1-A-2/qa/report.json

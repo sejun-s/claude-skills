@@ -69,11 +69,20 @@ function measure() {
     }
   }
 
-  for (const el of document.querySelectorAll('a[href],button,input:not([type=hidden]),select,textarea,[role=button],[role=link]')) {
-    if (!vis(el)) continue;
-    const r = el.getBoundingClientRect();
-    if (r.width < 24 || r.height < 24) res.smallTargets.push({ el: sel(el), w: Math.round(r.width), h: Math.round(r.height) });
-  }
+  const targets = [...document.querySelectorAll('a[href],button,input:not([type=hidden]),select,textarea,[role=button],[role=link]')].filter(vis);
+  const rects = targets.map((el) => el.getBoundingClientRect());
+  targets.forEach((el, i) => {
+    const r = rects[i];
+    if (r.width >= 24 && r.height >= 24) return;
+    // WCAG 2.2 SC 2.5.8 spacing exception: a 24px circle centred on the target must not intersect any other target.
+    const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    const clash = rects.some((o, j) => {
+      if (j === i) return false;
+      const dx = Math.max(o.left - cx, 0, cx - o.right), dy = Math.max(o.top - cy, 0, cy - o.bottom);
+      return Math.hypot(dx, dy) < 12;
+    });
+    if (clash) res.smallTargets.push({ el: sel(el), w: Math.round(r.width), h: Math.round(r.height) });
+  });
 
   // Korean wrapping: for each text node containing Hangul, find eojeol (space-delimited token) split across lines.
   const hangul = /[ㄱ-ㆎ가-힣]/;
@@ -97,6 +106,7 @@ function measure() {
     let midWord = 0; const samples = [];
     for (let i = 1; i < text.length; i++) {
       if (tops[i] === null || tops[i - 1] === null) continue;
+      if (!hangul.test(text[i]) || !hangul.test(text[i - 1])) continue; // Hangul|Latin/digit boundaries are legal break points
       if (tops[i] - tops[i - 1] > 6) {
         midWord++;
         if (samples.length < 2) samples.push(text.slice(Math.max(0, i - 4), i) + '|' + text.slice(i, i + 4));
