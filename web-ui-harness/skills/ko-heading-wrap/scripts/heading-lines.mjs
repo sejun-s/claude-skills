@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // 제목(h1~h3 등)의 폭별 줄바꿈을 추출하고, 지정한 구(phrase)가 줄 경계에서 쪼개지는지 검사한다.
-// usage: node heading-lines.mjs <file.html> [--keep "고장의 징후,멈추기 전에"] [--widths 320,375,768,1024,1440] [--selector "h1,h2,h3"] [--json]
+// usage: node heading-lines.mjs <file.html> [--keep "신규 가입 혜택,가입하기 전에"] [--widths 320,375,768,1024,1440] [--selector "h1,h2,h3"] [--json]
 // exit code: 쪼개진 구가 있으면 1.
 import { createRequire } from 'node:module';
 import { resolve } from 'node:path';
