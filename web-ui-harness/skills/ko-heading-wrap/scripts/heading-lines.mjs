@@ -1,12 +1,19 @@
 #!/usr/bin/env node
-// 제목(h1~h3 등)의 폭별 줄바꿈을 추출하고, 지정한 구(phrase)가 줄 경계에서 쪼개지는지 검사한다.
+// v0.2.0 — 제목(h1~h3 등)의 폭별 줄바꿈을 추출한다.
+//  - 항상: 모든 제목의 폭별 줄 구성, 마지막 줄 고아(공백 제외 2글자 이하), 제목 가로 넘침을 출력한다.
+//  - --keep을 주면: 지정한 구가 줄 경계에서 쪼개지는지도 검사한다. (--keep 없이는 구 쪼개짐을 검사하지 않는다 — 출력에 명시)
 // usage: node heading-lines.mjs <file.html> [--keep "신규 가입 혜택,가입하기 전에"] [--widths 320,375,768,1024,1440] [--selector "h1,h2,h3"] [--json]
-// exit code: 쪼개진 구가 있으면 1.
+// exit code: 구 쪼개짐 또는 가로 넘침이 있으면 1 (고아 줄은 경고만).
 import { createRequire } from 'node:module';
 import { resolve } from 'node:path';
+import { existsSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 const require = createRequire(import.meta.url);
-const { chromium } = require(process.env.PLAYWRIGHT_PATH || '/opt/node-tools/node_modules/playwright');
+let chromium;
+for (const m of [process.env.PLAYWRIGHT_PATH, 'playwright', '/opt/node-tools/node_modules/playwright'].filter(Boolean)) {
+  try { ({ chromium } = require(m)); break; } catch { /* try next */ }
+}
+if (!chromium) { console.error('playwright를 찾을 수 없다. PLAYWRIGHT_PATH를 지정하라.'); process.exit(2); }
 const argv = process.argv.slice(2);
 const file = argv.find((a) => !a.startsWith('--'));
 const opt = (n, d) => { const i = argv.indexOf(`--${n}`); return i >= 0 && argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[i + 1] : d; };
@@ -15,7 +22,10 @@ const keep = opt('keep', '').split(',').map((s) => s.replace(/\s+/g, '')).filter
 const widths = opt('widths', '320,375,768,1024,1440').split(',').map(Number);
 const selector = opt('selector', 'h1,h2,h3');
 
-const browser = await chromium.launch({ executablePath: process.env.CHROME_BIN || '/opt/pw-browsers/chromium', args: ['--no-sandbox', '--disable-dev-shm-usage'] });
+const launchOpts = { args: ['--no-sandbox', '--disable-dev-shm-usage'] };
+if (process.env.CHROME_BIN) launchOpts.executablePath = process.env.CHROME_BIN;
+else if (existsSync('/opt/pw-browsers/chromium')) launchOpts.executablePath = '/opt/pw-browsers/chromium';
+const browser = await chromium.launch(launchOpts);
 const page = await browser.newPage({ viewport: { width: widths[0], height: 900 } });
 await page.goto(pathToFileURL(resolve(file)).href, { waitUntil: 'networkidle' });
 await page.evaluate(() => document.fonts.ready);
@@ -68,13 +78,16 @@ for (const w of widths) {
         from = at + p.length;
       }
     }
-    results.push({ width: w, tag: h.tag, text: flat, lines, brokenPhrases: [...new Set(broken)], overflowX: h.overflowX });
+    const lastLen = (lines[lines.length - 1] || '').replace(/\s+/g, '').length;
+    const orphan = lines.length >= 2 && lastLen <= 2;
+    results.push({ width: w, tag: h.tag, text: flat, lines, brokenPhrases: [...new Set(broken)], overflowX: h.overflowX, orphan });
   }
 }
 await browser.close();
 
 if (argv.includes('--json')) console.log(JSON.stringify(results, null, 1));
-else for (const r of results) console.log(`@${String(r.width).padEnd(4)} ${r.tag}: ${r.lines.join(' / ')}${r.brokenPhrases.length ? `   ✗ 쪼개짐: ${r.brokenPhrases.join(', ')}` : ''}${r.overflowX ? '   ⚠ 가로 넘침' : ''}`);
+else for (const r of results) console.log(`@${String(r.width).padEnd(4)} ${r.tag}: ${r.lines.join(' / ')}${r.brokenPhrases.length ? `   ✗ 쪼개짐: ${r.brokenPhrases.join(', ')}` : ''}${r.overflowX ? '   ⚠ 가로 넘침' : ''}${r.orphan ? '   ⚠ 마지막 줄 고아' : ''}`);
 const bad = results.filter((r) => r.brokenPhrases.length || r.overflowX);
-console.log(`\n제목 ${new Set(results.map((r) => r.text)).size}개 × 폭 ${widths.length}: 구 쪼개짐 ${results.filter((r) => r.brokenPhrases.length).length}건, 가로 넘침 ${results.filter((r) => r.overflowX).length}건`);
+console.log(`\n제목 ${new Set(results.map((r) => r.text)).size}개 × 폭 ${widths.length}: 구 쪼개짐 ${keep.length ? results.filter((r) => r.brokenPhrases.length).length + '건' : '미검사(--keep 없음)'}, 가로 넘침 ${results.filter((r) => r.overflowX).length}건, 마지막 줄 고아 ${results.filter((r) => r.orphan).length}건`);
+if (!keep.length) console.log('※ --keep 없이는 구 쪼개짐을 검사하지 않는다. 위 줄 구성을 눈으로 확인하라.');
 process.exit(bad.length ? 1 : 0);
