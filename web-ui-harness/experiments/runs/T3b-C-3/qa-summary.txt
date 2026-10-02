@@ -1,0 +1,5 @@
+target: /home/user/claude-skills/web-ui-harness/experiments/runs/T3b-C-3/index.html
+widths swept: 20 (320-1440, step 64, + shots)
+mechanical defects: none
+impeccable detect: {}
+report: /home/user/claude-skills/web-ui-harness/experiments/runs/T3b-C-3/qa/report.json

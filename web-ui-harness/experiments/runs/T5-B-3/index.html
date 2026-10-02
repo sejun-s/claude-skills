@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>스텝보드</title>
+<style>
+@font-face{font-family:"Pretendard";font-weight:400;font-display:swap;src:url(fonts/Pretendard-Regular.woff2) format("woff2")}
+@font-face{font-family:"Pretendard";font-weight:500;font-display:swap;src:url(fonts/Pretendard-Medium.woff2) format("woff2")}
+@font-face{font-family:"Pretendard";font-weight:600;font-display:swap;src:url(fonts/Pretendard-SemiBold.woff2) format("woff2")}
+@font-face{font-family:"Pretendard";font-weight:700;font-display:swap;src:url(fonts/Pretendard-Bold.woff2) format("woff2")}
+
+:root{
+  --ink:#101b3d;
+  --ink-2:#4a5578;      /* secondary text, 6.9:1 on paper */
+  --paper:#f4f6fa;
+  --card:#ffffff;
+  --line:#b9c2d9;
+  --tint:#e6ebf7;       /* form label cells */
+  --cobalt:#2340e0;
+  --cobalt-deep:#1a2fb0;
+  --mark:#ffd23f;       /* highlighter: actions only */
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:72px;
+  --gutter:clamp(16px,4vw,48px);
+  --font:"Pretendard",system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.6 var(--font);word-break:keep-all;overflow-wrap:break-word;letter-spacing:-.005em}
+a{color:inherit}
+::selection{background:var(--mark);color:var(--ink)}
+:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}
+.band :focus-visible{outline-color:var(--mark)}
+.wrap{width:100%;max-width:1280px;margin-inline:auto;padding-inline:var(--gutter)}
+
+/* ---------- header ---------- */
+.top{background:var(--paper);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:var(--s4);min-height:64px;padding-block:var(--s2);position:relative}
+.brand{font-weight:700;font-size:1.25rem;letter-spacing:-.03em;text-decoration:none;white-space:nowrap;margin-right:auto}
+.menu{display:none;margin:0;padding:0;list-style:none}
+.menu a{display:flex;align-items:center;min-height:44px;padding-inline:var(--s3);text-decoration:none;font-weight:500;font-size:.9375rem;white-space:nowrap;text-underline-offset:.3em}
+.menu a:hover{text-decoration:underline;text-decoration-thickness:2px}
+.toggle{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--ink);background:var(--card);color:var(--ink);border-radius:2px;cursor:pointer;padding:0}
+.toggle svg{width:20px;height:20px}
+.toggle .x{display:none}
+.toggle[aria-expanded=true] .x{display:block}
+.toggle[aria-expanded=true] .b{display:none}
+.menu.open{display:block;position:absolute;left:var(--gutter);right:var(--gutter);top:100%;z-index:10;background:var(--card);border:1px solid var(--ink);border-top:0;box-shadow:0 12px 24px -12px rgba(16,27,61,.35)}
+.menu.open li+li{border-top:1px solid var(--line)}
+.menu.open a{padding-inline:var(--s4)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:var(--s2) var(--s5);background:var(--mark);color:var(--ink);font:700 1rem/1.2 var(--font);border:1px solid var(--ink);border-radius:2px;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background-color .15s ease-out,box-shadow .15s ease-out}
+.btn:hover{background:#ffe07a;box-shadow:0 3px 0 var(--ink)}
+.btn:active{box-shadow:none;transform:translateY(1px)}
+@media (min-width:1180px){
+  .toggle{display:none}
+  .top .wrap{gap:var(--s5)}
+  .brand{margin-right:var(--s5)}
+  .menu{display:flex;flex:1;gap:var(--s1);margin-right:auto}
+}
+
+/* ---------- pricing ---------- */
+.band{background:var(--cobalt);padding-block:var(--s7) var(--s8);color:var(--ink)}
+.plans{background:var(--card);border:1px solid var(--ink);border-radius:2px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{text-align:left;vertical-align:top;padding:var(--s4) var(--s4);border-bottom:1px solid var(--line);font-weight:400}
+thead th{padding-block:var(--s5);font-weight:700;font-size:1.375rem;letter-spacing:-.03em;line-height:1.2;border-bottom:2px solid var(--ink);vertical-align:bottom}
+tbody th{background:var(--tint);font-weight:600;font-size:.9375rem;color:var(--ink)}
+tbody tr:last-child>*{border-bottom:0}
+td{font-size:.9375rem;line-height:1.5}
+td+td,th+td,th+th{border-left:1px solid var(--line)}
+thead th:first-child{background:var(--tint)}
+tbody tr:first-child td{font-weight:700;font-size:1.5rem;letter-spacing:-.03em;line-height:1.2}
+td.none{color:var(--ink-2)}
+
+@media (max-width:719px){
+  thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  table,tbody,tr,th,td{display:block}
+  tbody tr{border-bottom:2px solid var(--ink)}
+  tbody tr:last-child{border-bottom:0}
+  tbody th{border-bottom:1px solid var(--line)}
+  tbody td{display:grid;grid-template-columns:minmax(7.5em,34%) 1fr;gap:var(--s3);align-items:baseline;border-left:0;padding-block:var(--s3)}
+  tbody td::before{content:attr(data-plan);font-weight:600;color:var(--cobalt);font-size:.9375rem}
+  tbody tr:first-child td{font-size:1.25rem}
+  tbody tr:last-child td:last-child{border-bottom:0}
+  tbody tr:last-child td{border-bottom:1px solid var(--line)}
+  tbody tr:last-child td:last-child{border-bottom:0}
+}
+@media (min-width:720px){
+  th,td{padding:var(--s4) var(--s3)}
+  thead th{font-size:1.125rem}
+  tbody th{width:19%}
+  th:first-child{padding-left:var(--s5)}
+  tbody tr:first-child td{font-size:1.25rem}
+}
+@media (min-width:1024px){
+  th,td{padding:var(--s5) var(--s5)}
+  thead th{font-size:1.5rem}
+  tbody tr:first-child td{font-size:1.75rem}
+  td{font-size:1rem}
+  tbody th{font-size:1rem;width:18%}
+}
+
+/* ---------- features ---------- */
+.features{padding-block:var(--s8)}
+.grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:1px;background:var(--ink);border:1px solid var(--ink);border-radius:2px;overflow:hidden}
+.grid li{background:var(--card);padding:var(--s5);display:flex;flex-direction:column;gap:var(--s3)}
+.grid h3{margin:0;font-size:1.25rem;font-weight:700;letter-spacing:-.03em;line-height:1.3;text-wrap:balance}
+.grid p{margin:0;color:var(--ink-2);font-size:1rem;line-height:1.65;max-width:42ch}
+@media (min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}.grid li{padding:var(--s6)}}
+@media (min-width:1080px){.grid{grid-template-columns:repeat(4,1fr)}.grid li{padding:var(--s5)}}
+@media (min-width:1280px){.grid li{padding:var(--s6) var(--s5)}}
+
+/* ---------- contact form ---------- */
+.contact{padding-block:0 var(--s8)}
+form{max-width:880px;margin-inline:auto;background:var(--card);border:1px solid var(--ink);border-radius:2px}
+.row{display:grid;grid-template-columns:1fr;border-bottom:1px solid var(--line)}
+.row>label,.row>.lab{background:var(--tint);padding:var(--s3) var(--s4);font-weight:600;font-size:.9375rem;display:block;border:0;margin:0}
+.row>.ctl{padding:var(--s3) var(--s4);display:flex;align-items:center;min-width:0}
+input[type=text],input[type=email],textarea{width:100%;min-height:44px;padding:var(--s2) var(--s3);font:400 1rem/1.5 var(--font);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:2px;transition:border-color .15s,background-color .15s}
+textarea{min-height:152px;resize:vertical}
+input:hover,textarea:hover{border-color:var(--ink-2)}
+input:focus,textarea:focus{background:var(--card);border-color:var(--cobalt);outline:2px solid var(--cobalt);outline-offset:0}
+input:user-invalid,textarea:user-invalid{border-color:#b3261e}
+input{caret-color:var(--cobalt)}
+.size{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s2);width:100%}
+.size label{position:relative;display:block}
+.size input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.size span{display:flex;align-items:center;justify-content:center;min-height:44px;padding:var(--s2);border:1px solid var(--line);border-radius:2px;background:var(--paper);font-weight:500;font-size:.9375rem;text-align:center;transition:background-color .15s,color .15s,border-color .15s}
+.size input:hover+span{border-color:var(--ink)}
+.size input:checked+span{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+.size input:focus-visible+span{outline:3px solid var(--cobalt);outline-offset:3px}
+.agree{display:flex;gap:var(--s3);align-items:flex-start;padding:var(--s4);border-bottom:1px solid var(--line);font-size:.9375rem;cursor:pointer;line-height:1.5}
+.agree input{appearance:none;flex:none;width:24px;height:24px;margin:0;border:2px solid var(--ink);border-radius:2px;background:var(--card);display:grid;place-content:center;cursor:pointer}
+.agree input::after{content:"";width:12px;height:7px;border:solid var(--ink);border-width:0 0 3px 3px;transform:rotate(-45deg) translate(1px,-1px);opacity:0}
+.agree input:checked{background:var(--mark)}
+.agree input:checked::after{opacity:1}
+.agree input:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}
+.send{padding:var(--s4);display:flex}
+.send .btn{width:100%}
+@media (min-width:640px){
+  .row{grid-template-columns:200px 1fr}
+  .row>label,.row>.lab{padding:var(--s4) var(--s5);display:flex;align-items:flex-start;border-right:1px solid var(--line)}
+  .row>.ctl{padding:var(--s3) var(--s5)}
+  .size{grid-template-columns:repeat(4,1fr)}
+  .agree{padding:var(--s4) var(--s5)}
+  .send{padding:var(--s5);justify-content:flex-end}
+  .send .btn{width:auto;min-width:200px}
+}
+@media (max-width:359px){.size span{font-size:.875rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">스텝보드</a>
+    <button class="toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="내비게이션">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path class="b" d="M3 5h14M3 10h14M3 15h14"/><path class="x" d="M4 4l12 12M16 4L4 16"/></svg>
+    </button>
+    <nav aria-label="내비게이션" style="display:contents">
+      <ul class="menu" id="menu">
+        <li><a href="#top">제품 소개</a></li>
+        <li><a href="#features">기능</a></li>
+        <li><a href="#pricing">요금제</a></li>
+        <li><a href="#">고객 사례</a></li>
+        <li><a href="#">보안 및 규정 준수</a></li>
+        <li><a href="#">개발자 문서</a></li>
+        <li><a href="#contact">고객 지원</a></li>
+      </ul>
+    </nav>
+    <a class="btn" href="#contact">무료로 시작하기</a>
+  </div>
+</header>
+
+<main>
+  <section class="band" id="pricing" aria-label="요금제">
+    <div class="wrap">
+      <div class="plans">
+        <table>
+          <thead>
+            <tr><th scope="col">항목</th><th scope="col">스타터</th><th scope="col">팀</th><th scope="col">비즈니스</th><th scope="col">엔터프라이즈</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">월 요금 (사용자당)</th><td data-plan="스타터">무료</td><td data-plan="팀">₩9,900</td><td data-plan="비즈니스">₩19,900</td><td data-plan="엔터프라이즈">별도 문의</td></tr>
+            <tr><th scope="row">프로젝트 수</th><td data-plan="스타터">3개</td><td data-plan="팀">무제한</td><td data-plan="비즈니스">무제한</td><td data-plan="엔터프라이즈">무제한</td></tr>
+            <tr><th scope="row">저장 공간</th><td data-plan="스타터">5GB</td><td data-plan="팀">100GB</td><td data-plan="비즈니스">1TB</td><td data-plan="엔터프라이즈">맞춤 설정</td></tr>
+            <tr><th scope="row">팀 구성원</th><td data-plan="스타터">최대 5명</td><td data-plan="팀">최대 50명</td><td data-plan="비즈니스">최대 500명</td><td data-plan="엔터프라이즈">제한 없음</td></tr>
+            <tr><th scope="row">승인 워크플로</th><td data-plan="스타터" class="none">—</td><td data-plan="팀">기본</td><td data-plan="비즈니스">다단계 승인</td><td data-plan="엔터프라이즈">다단계 승인 + 감사 로그</td></tr>
+            <tr><th scope="row">외부 서비스 연동</th><td data-plan="스타터">3개</td><td data-plan="팀">20개</td><td data-plan="비즈니스">100개 이상</td><td data-plan="엔터프라이즈">100개 이상 + 전용 커넥터</td></tr>
+            <tr><th scope="row">단일 로그인(SSO)</th><td data-plan="스타터" class="none">—</td><td data-plan="팀" class="none">—</td><td data-plan="비즈니스">지원</td><td data-plan="엔터프라이즈">지원 (SAML, SCIM)</td></tr>
+            <tr><th scope="row">고객 지원</th><td data-plan="스타터">커뮤니티</td><td data-plan="팀">이메일 (영업일 2일 이내)</td><td data-plan="비즈니스">이메일·채팅 (4시간 이내)</td><td data-plan="엔터프라이즈">전담 매니저 및 24시간 대응</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features" aria-label="기능">
+    <div class="wrap">
+      <ul class="grid">
+        <li><h3>업무 보드</h3><p>칸반과 타임라인을 한 화면에서 전환합니다.</p></li>
+        <li><h3>자동화 규칙</h3><p>조건에 따라 담당자 지정과 상태 변경을 자동으로 처리합니다.</p></li>
+        <li><h3>승인 요청</h3><p>검토가 필요한 항목을 지정된 순서에 따라 승인자에게 전달합니다.</p></li>
+        <li><h3>외부 서비스 연동을 통한 알림 통합 관리</h3><p>메신저, 이메일, 캘린더의 알림을 한곳에서 확인합니다.</p></li>
+        <li><h3>리포트</h3><p>팀별 처리 속도와 지연 항목을 주간 단위로 요약합니다.</p></li>
+        <li><h3>템플릿</h3><p>반복되는 업무 구조를 저장해 새 프로젝트에 바로 적용합니다.</p></li>
+        <li><h3>권한 관리</h3><p>프로젝트와 항목 단위로 열람·편집 권한을 구분합니다.</p></li>
+        <li><h3>감사 로그 및 변경 이력 추적</h3><p>누가 언제 무엇을 바꿨는지 기록으로 남깁니다.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-label="고객 지원">
+    <div class="wrap">
+      <form action="#" method="post" id="inquiry">
+        <div class="row"><label for="f-name">이름(필수)</label><div class="ctl"><input id="f-name" name="name" type="text" autocomplete="name" required></div></div>
+        <div class="row"><label for="f-email">회사 이메일(필수)</label><div class="ctl"><input id="f-email" name="email" type="email" autocomplete="email" required></div></div>
+        <div class="row"><label for="f-co">회사명</label><div class="ctl"><input id="f-co" name="company" type="text" autocomplete="organization"></div></div>
+        <div class="row" role="group" aria-labelledby="l-size">
+          <div class="lab" id="l-size">팀 규모</div>
+          <div class="ctl"><div class="size">
+            <label><input type="radio" name="size" value="1–10"><span>1–10</span></label>
+            <label><input type="radio" name="size" value="11–50"><span>11–50</span></label>
+            <label><input type="radio" name="size" value="51–200"><span>51–200</span></label>
+            <label><input type="radio" name="size" value="201명 이상"><span>201명 이상</span></label>
+          </div></div>
+        </div>
+        <div class="row"><label for="f-msg">문의 내용</label><div class="ctl"><textarea id="f-msg" name="message" rows="5"></textarea></div></div>
+        <label class="agree"><input type="checkbox" name="consent" required><span>개인정보 수집·이용에 동의합니다</span></label>
+        <div class="send"><button class="btn" type="submit">문의 보내기</button></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  var t=document.querySelector('.toggle'),m=document.getElementById('menu');
+  function set(o){t.setAttribute('aria-expanded',o);m.classList.toggle('open',o)}
+  t.addEventListener('click',function(){set(t.getAttribute('aria-expanded')!=='true')});
+  m.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&t.getAttribute('aria-expanded')==='true'){set(false);t.focus()}});
+  document.getElementById('inquiry').addEventListener('submit',function(e){e.preventDefault()});
+})();
+</script>
+</body>
+</html>

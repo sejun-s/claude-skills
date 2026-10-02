@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>야간 검수 인력을 절반으로 줄이고도 오배송이 늘지 않은 이유</title>
+<style>
+@font-face{font-family:"Pretendard";font-weight:400;font-display:swap;src:url(fonts/Pretendard-Regular.woff2) format("woff2")}
+@font-face{font-family:"Pretendard";font-weight:500;font-display:swap;src:url(fonts/Pretendard-Medium.woff2) format("woff2")}
+@font-face{font-family:"Pretendard";font-weight:600;font-display:swap;src:url(fonts/Pretendard-SemiBold.woff2) format("woff2")}
+@font-face{font-family:"Pretendard";font-weight:700;font-display:swap;src:url(fonts/Pretendard-Bold.woff2) format("woff2")}
+:root{
+  --bg:#f3f5f8; --ink:#1b2230; --ink-2:#4a5568; --accent:#1f3f8f; --rule:#cfd6e2; --sel:#cdd9f5;
+  --font:"Pretendard",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#12161f;--ink:#e6e9f0;--ink-2:#a3adc0;--accent:#9db6f5;--rule:#2d3647;--sel:#2b3f73}
+}
+:root[data-theme="dark"]{--bg:#12161f;--ink:#e6e9f0;--ink-2:#a3adc0;--accent:#9db6f5;--rule:#2d3647;--sel:#2b3f73}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:1.125rem;line-height:1.9;
+  word-break:keep-all;overflow-wrap:break-word;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+::selection{background:var(--sel);color:var(--ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.page{padding:0 max(16px,env(safe-area-inset-left)) 6rem}
+header{max-width:62rem;margin:0 auto;padding:clamp(3rem,9vw,7rem) 0 clamp(2rem,5vw,3.5rem)}
+h1{font-size:clamp(1.9rem,5.4vw + .2rem,3.75rem);line-height:1.22;letter-spacing:-.035em;font-weight:700;margin:0;max-width:20ch;text-wrap:balance}
+.sub{font-size:clamp(1.125rem,1.4vw + .8rem,1.5rem);line-height:1.6;color:var(--ink-2);font-weight:400;letter-spacing:-.015em;margin:1.5rem 0 0;max-width:30em;text-wrap:balance}
+.meta{margin:2.25rem 0 0;padding-top:1rem;border-top:1px solid var(--rule);font-size:.9375rem;line-height:1.6;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
+.meta .cat{color:var(--accent);font-weight:600}
+article{max-width:62rem;margin:0 auto}
+.sec{display:block;margin-top:clamp(2.75rem,6vw,4.5rem)}
+.sec:first-child{margin-top:0}
+h2{font-size:1.375rem;line-height:1.4;letter-spacing:-.025em;font-weight:700;margin:0 0 1rem;color:var(--ink);text-wrap:balance}
+.sec h2::before{content:"";display:block;width:2rem;height:3px;background:var(--accent);margin-bottom:1rem}
+p{margin:0;max-width:34rem}
+p+p{margin-top:1.5em}
+.lead{font-size:1.25rem;line-height:1.85;font-weight:500}
+@media (min-width:60rem){
+  body{font-size:1.1875rem}
+  .lead{font-size:1.3125rem}
+  .sec{display:grid;grid-template-columns:15rem minmax(0,34rem);column-gap:4rem;align-items:start}
+  .sec.intro{display:block;margin-left:19rem}
+  .sec h2{position:sticky;top:2rem;margin:0}
+  .sec h2::before{margin-bottom:.9rem}
+}
+@media (max-width:30rem){body{font-size:1.0625rem}.lead{font-size:1.1875rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <h1>야간 검수 인력을 절반으로 줄이고도 오배송이 늘지 않은 이유</h1>
+  <p class="sub">사람이 하던 일을 기계에 넘긴 것이 아니라, 사람이 봐야 할 것을 다시 정한 결과였다</p>
+  <p class="meta"><span class="cat">물류 · 현장</span><span>한서윤 기자 · 2026년 9월 24일 · 읽는 시간 약 3분</span></p>
+</header>
+<article>
+  <section class="sec intro">
+    <p class="lead">충청북도의 한 물류 센터는 올해 초부터 야간 검수 인력을 열두 명에서 여섯 명으로 줄였다. 같은 기간 오배송 건수는 월평균 31건에서 29건으로 오히려 조금 줄었다. 센터장은 "인력을 줄인 것이 목적이었다면 이 결과는 나오지 않았을 것"이라고 말했다.</p>
+  </section>
+  <section class="sec">
+    <h2>2.4배 빨라진 출고 속도, 그 이면의 비용</h2>
+    <p>자동 분류 설비를 들여온 뒤 출고 속도는 평균 2.4배 빨라졌다. 하지만 속도가 오른 만큼 한 번의 실수가 퍼지는 범위도 넓어졌다. 센터는 모든 상품을 사람이 확인하던 방식을 버리고, 시스템이 불확실하다고 표시한 상품만 사람이 확인하도록 바꿨다. 확인 대상은 전체의 약 8%로 줄었다.</p>
+  </section>
+  <section class="sec">
+    <h2>AI 도입 3년 차에 되돌아본 현장의 변화</h2>
+    <p>도입 첫해에는 담당자들이 시스템의 판단을 일일이 다시 확인했다. 두 번째 해부터는 시스템이 틀리는 유형이 보이기 시작했고, 세 번째 해에는 그 유형을 중심으로 검수 기준이 다시 만들어졌다. 지금은 신입 담당자가 가장 먼저 배우는 것이 기계의 실수 패턴이다.</p>
+  </section>
+  <section class="sec">
+    <h2>데이터를 믿지 않는 베테랑을 설득하는 법</h2>
+    <p>가장 큰 저항은 20년 경력의 검수 담당자들에게서 나왔다. 센터는 설득하는 대신 비교하는 방법을 택했다. 담당자가 직접 판단한 결과와 시스템의 판단을 한 달 동안 나란히 기록해 보여준 것이다. 결과가 엇갈린 건에 대해서는 누가 맞았는지를 그 자리에서 함께 확인했다.</p>
+  </section>
+  <section class="sec">
+    <h2>남은 과제: 예외 상황 처리</h2>
+    <p>여전히 어려운 것은 포장이 훼손된 상품이나 규격 외 상품 같은 예외 상황이다. 센터는 예외 유형을 분기마다 정리해 시스템에 반영하고 있지만, 새로운 유형은 계속 나타난다. 센터장은 "예외를 줄이는 것이 아니라 예외를 더 빨리 발견하는 것이 목표"라고 설명했다.</p>
+  </section>
+</article>
+</div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+{
+ "note": "평가가 끝나기 전에 열지 마세요. 좌/우 배치와 조건(A/B/C)의 대응표입니다.",
+ "seed": 20261002,
+ "key": {
+  "P01": {
+   "task": "T5",
+   "left": "T5-A-1",
+   "right": "T5-C-1",
+   "repeat": false,
+   "mode": "page"
+  },
+  "P02": {
+   "task": "T5",
+   "left": "T5-C-1",
+   "right": "T5-B-1",
+   "repeat": false,
+   "mode": "page"
+  },
+  "P03": {
+   "task": "T1",
+   "left": "T1-B-1",
+   "right": "T1-C-1",
+   "repeat": false,
+   "mode": "page"
+  },
+  "P04": {
+   "task": "T5",
+   "left": "T5-B-3",
+   "right": "T5-C-3",
+   "repeat": false,
+   "mode": "page"
+  },
+  "P05": {
+   "task": "T3",
+   "left": "T3-C-2",
+   "right": "T3-B-2",
+   "repeat": true,
+   "mode": "page"
+  },
+  "P06": {
+   "task": "T3",
+   "left": "T3-B-1",
+   "right": "T3-C-1",
+   "repeat": false,
+   "mode": "page"
+  },
+  "P07": {
+   "task": "T1",
+   "left": "T1-B-3",
+   "right": "T1-C-3",
+   "repeat": false,
+   "mode": "page"
+  },
+  "P08": {
+   "task": "T5",
+   "left": "T5-B-2",
+   "right": "T5-C-2",
+   "repeat": false,
+   "mode": "page"
+  },
+  "P09": {
+   "task": "T3b",
+   "left": "T3b-B-2",
+   "right": "T3b-C-2",
+   "repeat": false,
+   "mode": "page"
+  },
+  "P10": {
+   "task": "T1",
+   "left": "T1-C-2",
+   "right": "T1-B-2",
+   "repeat": false,
+   "mode": "page"
+  },
+  "P11": {
+   "task": "T1",
+   "left": "T1-A-1",
+   "right": "T1-C-1",
+   "repeat": false,
+   "mode": "page"
+  },
+  "P12": {
+   "task": "T3b",
+   "left": "T3b-C-1",
+   "right": "T3b-B-1",
+   "repeat": false,
+   "mode": "page"
+  },
+  "P13": {
+   "task": "T5",
+   "left": "T5-B-3",
+   "right": "T5-C-3",
+   "repeat": true,
+   "mode": "page"
+  },
+  "P14": {
+   "task": "T3b",
+   "left": "T3b-B-3",
+   "right": "T3b-C-3",
+   "repeat": false,
+   "mode": "page"
+  },
+  "P15": {
+   "task": "T3",
+   "left": "T3-C-1",
+   "right": "T3-A-1",
+   "repeat": false,
+   "mode": "page"
+  },
+  "P16": {
+   "task": "T3",
+   "left": "T3-B-2",
+   "right": "T3-C-2",
+   "repeat": false,
+   "mode": "page"
+  },
+  "P17": {
+   "task": "T3",
+   "left": "T3-C-3",
+   "right": "T3-B-3",
+   "repeat": false,
+   "mode": "page"
+  }
+ }
+}

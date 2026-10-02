@@ -1,0 +1,104 @@
+[
+ {
+  "task": "T1",
+  "a": "T1-B-1",
+  "b": "T1-C-1",
+  "mobile": true
+ },
+ {
+  "task": "T1",
+  "a": "T1-B-2",
+  "b": "T1-C-2",
+  "mobile": false
+ },
+ {
+  "task": "T1",
+  "a": "T1-B-3",
+  "b": "T1-C-3",
+  "mobile": false
+ },
+ {
+  "task": "T3",
+  "a": "T3-B-1",
+  "b": "T3-C-1",
+  "mobile": true
+ },
+ {
+  "task": "T3",
+  "a": "T3-B-2",
+  "b": "T3-C-2",
+  "mobile": false
+ },
+ {
+  "task": "T3",
+  "a": "T3-B-3",
+  "b": "T3-C-3",
+  "mobile": false
+ },
+ {
+  "task": "T3b",
+  "a": "T3b-B-1",
+  "b": "T3b-C-1",
+  "mobile": false
+ },
+ {
+  "task": "T3b",
+  "a": "T3b-B-2",
+  "b": "T3b-C-2",
+  "mobile": true
+ },
+ {
+  "task": "T3b",
+  "a": "T3b-B-3",
+  "b": "T3b-C-3",
+  "mobile": false
+ },
+ {
+  "task": "T5",
+  "a": "T5-B-1",
+  "b": "T5-C-1",
+  "mobile": true
+ },
+ {
+  "task": "T5",
+  "a": "T5-B-2",
+  "b": "T5-C-2",
+  "mobile": false
+ },
+ {
+  "task": "T5",
+  "a": "T5-B-3",
+  "b": "T5-C-3",
+  "mobile": false
+ },
+ {
+  "task": "T1",
+  "a": "T1-A-1",
+  "b": "T1-C-1",
+  "mobile": false
+ },
+ {
+  "task": "T3",
+  "a": "T3-A-1",
+  "b": "T3-C-1",
+  "mobile": false
+ },
+ {
+  "task": "T5",
+  "a": "T5-A-1",
+  "b": "T5-C-1",
+  "mobile": false
+ },
+ {
+  "task": "T3",
+  "a": "T3-B-2",
+  "b": "T3-C-2",
+  "repeat": true
+ },
+ {
+  "task": "T5",
+  "a": "T5-B-3",
+  "b": "T5-C-3",
+  "repeat": true
+ }
+]

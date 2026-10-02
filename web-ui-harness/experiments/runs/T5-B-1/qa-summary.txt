@@ -1,0 +1,5 @@
+target: /home/user/claude-skills/web-ui-harness/experiments/runs/T5-B-1/index.html
+widths swept: 20 (320-1440, step 64, + shots)
+  korean-orphan-line: at 960, 1024, 1088px
+impeccable detect: {"cramped-padding":1}
+report: /home/user/claude-skills/web-ui-harness/experiments/runs/T5-B-1/qa/report.json

@@ -1,6 +1,5 @@
 target: /home/user/claude-skills/web-ui-harness/experiments/runs/T5-A-3/index.html
 widths swept: 20 (320-1440, step 64, + shots)
-  clipped-text: at 320, 375, 384, 448, 512, 576, 640, 704, 768, 832, 896, 960, 1024, 1088, 1152, 1216, 1280, 1344, 1408, 1440px
   korean-orphan-line: at 320, 375, 384, 448, 512, 576, 640, 704, 768, 832, 896, 960, 1024, 1088, 1152px
 impeccable detect: {"cramped-padding":1}
 report: /home/user/claude-skills/web-ui-harness/experiments/runs/T5-A-3/qa/report.json

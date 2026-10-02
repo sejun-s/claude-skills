@@ -1,0 +1,90 @@
+{
+ "note": "평가가 끝나기 전에 열지 마세요. 좌/우 배치와 조건(A/B/C)의 대응표입니다.",
+ "seed": 20261002,
+ "key": {
+  "P01": {
+   "task": "T3b",
+   "left": "T3b-C-1",
+   "right": "T3b-B-1",
+   "repeat": false,
+   "mode": "heading"
+  },
+  "P02": {
+   "task": "T1",
+   "left": "T1-C-2",
+   "right": "T1-B-2",
+   "repeat": false,
+   "mode": "heading"
+  },
+  "P03": {
+   "task": "T3",
+   "left": "T3-B-2",
+   "right": "T3-C-2",
+   "repeat": false,
+   "mode": "heading"
+  },
+  "P04": {
+   "task": "T1",
+   "left": "T1-B-1",
+   "right": "T1-C-1",
+   "repeat": false,
+   "mode": "heading"
+  },
+  "P05": {
+   "task": "T3b",
+   "left": "T3b-D-1",
+   "right": "T3b-C-1",
+   "repeat": false,
+   "mode": "heading"
+  },
+  "P06": {
+   "task": "T3b",
+   "left": "T3b-C-2",
+   "right": "T3b-B-2",
+   "repeat": false,
+   "mode": "heading"
+  },
+  "P07": {
+   "task": "T3",
+   "left": "T3-B-1",
+   "right": "T3-C-1",
+   "repeat": false,
+   "mode": "heading"
+  },
+  "P08": {
+   "task": "T3",
+   "left": "T3-B-3",
+   "right": "T3-C-3",
+   "repeat": false,
+   "mode": "heading"
+  },
+  "P09": {
+   "task": "T3b",
+   "left": "T3b-B-3",
+   "right": "T3b-C-3",
+   "repeat": false,
+   "mode": "heading"
+  },
+  "P10": {
+   "task": "T3b",
+   "left": "T3b-C-3",
+   "right": "T3b-D-3",
+   "repeat": false,
+   "mode": "heading"
+  },
+  "P11": {
+   "task": "T3b",
+   "left": "T3b-D-2",
+   "right": "T3b-C-2",
+   "repeat": false,
+   "mode": "heading"
+  },
+  "P12": {
+   "task": "T1",
+   "left": "T1-B-3",
+   "right": "T1-C-3",
+   "repeat": false,
+   "mode": "heading"
+  }
+ }
+}

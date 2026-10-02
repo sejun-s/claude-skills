@@ -1,0 +1,74 @@
+[
+ {
+  "task": "T1",
+  "a": "T1-B-1",
+  "b": "T1-C-1",
+  "mode": "heading"
+ },
+ {
+  "task": "T1",
+  "a": "T1-B-2",
+  "b": "T1-C-2",
+  "mode": "heading"
+ },
+ {
+  "task": "T1",
+  "a": "T1-B-3",
+  "b": "T1-C-3",
+  "mode": "heading"
+ },
+ {
+  "task": "T3",
+  "a": "T3-B-1",
+  "b": "T3-C-1",
+  "mode": "heading"
+ },
+ {
+  "task": "T3",
+  "a": "T3-B-2",
+  "b": "T3-C-2",
+  "mode": "heading"
+ },
+ {
+  "task": "T3",
+  "a": "T3-B-3",
+  "b": "T3-C-3",
+  "mode": "heading"
+ },
+ {
+  "task": "T3b",
+  "a": "T3b-B-1",
+  "b": "T3b-C-1",
+  "mode": "heading"
+ },
+ {
+  "task": "T3b",
+  "a": "T3b-B-2",
+  "b": "T3b-C-2",
+  "mode": "heading"
+ },
+ {
+  "task": "T3b",
+  "a": "T3b-B-3",
+  "b": "T3b-C-3",
+  "mode": "heading"
+ },
+ {
+  "task": "T3b",
+  "a": "T3b-D-1",
+  "b": "T3b-C-1",
+  "mode": "heading"
+ },
+ {
+  "task": "T3b",
+  "a": "T3b-D-2",
+  "b": "T3b-C-2",
+  "mode": "heading"
+ },
+ {
+  "task": "T3b",
+  "a": "T3b-D-3",
+  "b": "T3b-C-3",
+  "mode": "heading"
+ }
+]

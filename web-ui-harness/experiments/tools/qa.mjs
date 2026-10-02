@@ -64,7 +64,9 @@ function measure() {
     if (!vis(el)) continue;
     const cs = getComputedStyle(el);
     const clips = /hidden|clip/.test(cs.overflowX);
-    if (clips && el.scrollWidth > el.clientWidth + 1 && (el.textContent || '').trim()) {
+    // visually-hidden(sr-only) 패턴(너비/높이 ≤1px로 clip)은 의도된 숨김이므로 제외
+    const hiddenByDesign = el.clientWidth <= 1 || el.clientHeight <= 1;
+    if (clips && !hiddenByDesign && el.scrollWidth > el.clientWidth + 1 && (el.textContent || '').trim()) {
       res.clipped.push({ el: sel(el), scrollWidth: el.scrollWidth, clientWidth: el.clientWidth, ellipsis: cs.textOverflow === 'ellipsis' });
     }
   }

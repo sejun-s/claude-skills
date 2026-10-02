@@ -19,16 +19,20 @@ for n, idx in enumerate(order, 1):
     p = pairs[idx]; flip = rnd.random() < 0.5
     left, right = (p['b'], p['a']) if flip else (p['a'], p['b'])
     pid = f'P{n:02d}'
-    key[pid] = {'task': p['task'], 'left': left, 'right': right, 'repeat': bool(p.get('repeat'))}
+    key[pid] = {'task': p['task'], 'left': left, 'right': right, 'repeat': bool(p.get('repeat')), 'mode': p.get('mode', 'page')}
     imgs = {}
     for side, run in (('L', left), ('R', right)):
-        for kind, src in (('fold', 'shot-1440.png'), ('full', 'full-1440.png')) + ((('mob', 'shot-375.png'),) if p.get('mobile') else ()):
+        if p.get('mode') == 'heading':
+            kinds = (('fold', 'h1-375.png'), ('full', 'h1-768.png'))
+        else:
+            kinds = (('fold', 'shot-1440.png'), ('full', 'full-1440.png')) + ((('mob', 'shot-375.png'),) if p.get('mobile') else ())
+        for kind, src in kinds:
             dst = f'img/{pid}-{side}-{kind}.png'
             shutil.copy(f'{root}/{run}/qa/{src}', f'{out}/{dst}')
             imgs[f'{side}_{kind}'] = dst
-    items.append({'id': pid, 'task': p['task'], 'imgs': imgs})
+    items.append({'id': pid, 'task': p['task'], 'imgs': imgs, 'mode': p.get('mode', 'page')})
 json.dump({'note': '평가가 끝나기 전에 열지 마세요. 좌/우 배치와 조건(A/B/C)의 대응표입니다.', 'seed': seed, 'key': key},
-          open(os.path.join(os.path.dirname(out.rstrip('/')), 'human-blind-key.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+          open(os.path.join(os.path.dirname(out.rstrip('/')), os.path.basename(out.rstrip('/')) + '-key.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 html = '''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>페이지 비교 평가</title>
 <style>
@@ -53,11 +57,11 @@ button{padding:10px 16px;border-radius:8px;border:1px solid var(--line);backgrou
 <script>
 const ITEMS=__ITEMS__;const KEY='human-blind-v1';let st={};try{st=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
 let i=0;const $=s=>document.querySelector(s);const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
-const Q=[['intent','어느 쪽이 더 의도를 가지고 디자인된 것처럼 보이나요? (이유 없이 평균적인 선택이 적은 쪽)'],['use','어느 쪽을 실제 서비스에 쓰고 싶나요?'],['ai','어느 쪽이 더 \\'AI가 만든 것 같다\\'고 느껴지나요?']];
+const QP=[['intent','어느 쪽이 더 의도를 가지고 디자인된 것처럼 보이나요? (이유 없이 평균적인 선택이 적은 쪽)'],['use','어느 쪽을 실제 서비스에 쓰고 싶나요?'],['ai','어느 쪽이 더 \\'AI가 만든 것 같다\\'고 느껴지나요?']];const QH=[['read','어느 쪽 제목이 줄바꿈이 더 자연스럽고 읽기 편한가요?'],['awk','어느 쪽 제목에서 의미가 어색하게 끊기는 곳이 더 많나요?']];
 function radios(name,cur){return ['L:왼쪽','R:오른쪽','T:차이 없음'].map(x=>{const[v,t]=x.split(':');return `<label><input type=radio name="${name}" value="${v}" ${cur===v?'checked':''}>${t}</label>`}).join('')}
-function render(){const it=ITEMS[i];const r=st[it.id]||{};$('#prog').textContent=`${i+1} / ${ITEMS.length}`;
-const side=(s,l)=>`<div class=side><h2>${l}</h2><img src="${it.imgs[s+'_fold']}" alt="">${it.imgs[s+'_mob']?`<img src="${it.imgs[s+'_mob']}" style="max-width:260px" alt="">`:''}<details><summary>전체 보기</summary><img src="${it.imgs[s+'_full']}" alt=""></details></div>`;
-$('#stage').innerHTML=`<div class=pair>${side('L','왼쪽')}${side('R','오른쪽')}</div>`+Q.map(([k,t])=>`<fieldset><legend>${t}</legend>${radios(k,r[k])}</fieldset>`).join('')+`<fieldset><legend>한 줄 이유 (선택)</legend><input type=text id=why value="${(r.why||'').replace(/"/g,'&quot;')}"></fieldset>`;
+function render(){const it=ITEMS[i];if(it.mode==='heading'){document.querySelector('h1').textContent='두 제목의 줄바꿈 비교';document.querySelector('p.s').textContent='문구는 같고 줄바꿈 위치만 다를 수 있습니다. 좌우 위치와 순서는 무작위이며, 어느 쪽이 어떻게 만들어졌는지는 알려주지 않습니다. 차이가 없으면 \'차이 없음\'을 고르세요.'}const r=st[it.id]||{};$('#prog').textContent=`${i+1} / ${ITEMS.length}`;
+const hd=it.mode==='heading';const side=(s,l)=>`<div class=side><h2>${l}${hd?' — 모바일(375px) 제목':''}</h2><img src="${it.imgs[s+'_fold']}" alt="" ${hd?'style="max-width:375px"':''}>${it.imgs[s+'_mob']?`<img src="${it.imgs[s+'_mob']}" style="max-width:260px" alt="">`:''}<details><summary>${hd?'태블릿(768px) 보기':'전체 보기'}</summary><img src="${it.imgs[s+'_full']}" alt=""></details></div>`;
+$('#stage').innerHTML=`<div class=pair>${side('L','왼쪽')}${side('R','오른쪽')}</div>`+(hd?QH:QP).map(([k,t])=>`<fieldset><legend>${t}</legend>${radios(k,r[k])}</fieldset>`).join('')+`<fieldset><legend>한 줄 이유 (선택)</legend><input type=text id=why value="${(r.why||'').replace(/"/g,'&quot;')}"></fieldset>`;
 document.querySelectorAll('input[type=radio]').forEach(e=>e.onchange=()=>{(st[it.id]=st[it.id]||{})[e.name]=e.value;save()});
 $('#why').oninput=e=>{(st[it.id]=st[it.id]||{}).why=e.target.value;save()};$('#prev').disabled=i===0;$('#next').textContent=i===ITEMS.length-1?'완료':'다음';window.scrollTo(0,0)}
 $('#prev').onclick=()=>{i--;render()};$('#next').onclick=()=>{if(i<ITEMS.length-1){i++;render()}else{$('#stage').hidden=true;$('.nav').hidden=true;$('#end').hidden=false;$('#out').value=JSON.stringify(st,null,1)}};
@@ -65,4 +69,4 @@ $('#exp').onclick=()=>{$('#stage').hidden=true;$('.nav').hidden=true;$('#end').h
 </script></body></html>'''
 html = html.replace('__ITEMS__', json.dumps(items, ensure_ascii=False))
 open(out + '/index.html', 'w', encoding='utf-8').write(html)
-print(f'{len(items)}쌍 생성 → {out}/index.html (키: human-blind-key.json)')
+print(f'{len(items)}쌍 생성 → {out}/index.html (키: <out>-key.json)')

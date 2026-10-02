@@ -38,16 +38,6 @@
   "defects": [
     {
       "vw": 320,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
-      }
-    },
-    {
-      "vw": 320,
       "type": "korean-orphan-line",
       "detail": {
         "el": "td",
@@ -93,16 +83,6 @@
     },
     {
       "vw": 375,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
-      }
-    },
-    {
-      "vw": 375,
       "type": "korean-orphan-line",
       "detail": {
         "el": "td",
@@ -133,16 +113,6 @@
     },
     {
       "vw": 384,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
-      }
-    },
-    {
-      "vw": 384,
       "type": "korean-orphan-line",
       "detail": {
         "el": "td",
@@ -173,16 +143,6 @@
     },
     {
       "vw": 448,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
-      }
-    },
-    {
-      "vw": 448,
       "type": "korean-orphan-line",
       "detail": {
         "el": "td",
@@ -213,16 +173,6 @@
     },
     {
       "vw": 512,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
-      }
-    },
-    {
-      "vw": 512,
       "type": "korean-orphan-line",
       "detail": {
         "el": "td",
@@ -253,16 +203,6 @@
     },
     {
       "vw": 576,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
-      }
-    },
-    {
-      "vw": 576,
       "type": "korean-orphan-line",
       "detail": {
         "el": "td",
@@ -289,16 +229,6 @@
         "fontFamily": "Pretendard",
         "fontSize": "15px",
         "chars": 9
-      }
-    },
-    {
-      "vw": 640,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
       }
     },
     {
@@ -348,16 +278,6 @@
     },
     {
       "vw": 704,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
-      }
-    },
-    {
-      "vw": 704,
       "type": "korean-orphan-line",
       "detail": {
         "el": "td",
@@ -388,16 +308,6 @@
     },
     {
       "vw": 768,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
-      }
-    },
-    {
-      "vw": 768,
       "type": "korean-orphan-line",
       "detail": {
         "el": "td",
@@ -428,16 +338,6 @@
     },
     {
       "vw": 832,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
-      }
-    },
-    {
-      "vw": 832,
       "type": "korean-orphan-line",
       "detail": {
         "el": "td",
@@ -464,16 +364,6 @@
         "fontFamily": "Pretendard",
         "fontSize": "15px",
         "chars": 9
-      }
-    },
-    {
-      "vw": 896,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
       }
     },
     {
@@ -508,16 +398,6 @@
     },
     {
       "vw": 960,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
-      }
-    },
-    {
-      "vw": 960,
       "type": "korean-orphan-line",
       "detail": {
         "el": "th",
@@ -544,16 +424,6 @@
         "fontFamily": "Pretendard",
         "fontSize": "15px",
         "chars": 16
-      }
-    },
-    {
-      "vw": 1024,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
       }
     },
     {
@@ -588,16 +458,6 @@
     },
     {
       "vw": 1088,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
-      }
-    },
-    {
-      "vw": 1088,
       "type": "korean-orphan-line",
       "detail": {
         "el": "th",
@@ -613,16 +473,6 @@
     },
     {
       "vw": 1152,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
-      }
-    },
-    {
-      "vw": 1152,
       "type": "korean-orphan-line",
       "detail": {
         "el": "th",
@@ -634,56 +484,6 @@
         "fontFamily": "Pretendard",
         "fontSize": "15px",
         "chars": 9
-      }
-    },
-    {
-      "vw": 1216,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
-      }
-    },
-    {
-      "vw": 1280,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
-      }
-    },
-    {
-      "vw": 1344,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
-      }
-    },
-    {
-      "vw": 1408,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
-      }
-    },
-    {
-      "vw": 1440,
-      "type": "clipped-text",
-      "detail": {
-        "el": "span.sr",
-        "scrollWidth": 28,
-        "clientWidth": 1,
-        "ellipsis": false
       }
     }
   ],
@@ -703,14 +503,7 @@
     {
       "vw": 320,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -1411,14 +1204,7 @@
     {
       "vw": 375,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -2119,14 +1905,7 @@
     {
       "vw": 384,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -2827,14 +2606,7 @@
     {
       "vw": 448,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -3535,14 +3307,7 @@
     {
       "vw": 512,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -4243,14 +4008,7 @@
     {
       "vw": 576,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -4951,14 +4709,7 @@
     {
       "vw": 640,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -5659,14 +5410,7 @@
     {
       "vw": 704,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -6367,14 +6111,7 @@
     {
       "vw": 768,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -7075,14 +6812,7 @@
     {
       "vw": 832,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -7783,14 +7513,7 @@
     {
       "vw": 896,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -8491,14 +8214,7 @@
     {
       "vw": 960,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -9199,14 +8915,7 @@
     {
       "vw": 1024,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -9907,14 +9616,7 @@
     {
       "vw": 1088,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -10615,14 +10317,7 @@
     {
       "vw": 1152,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -11411,14 +11106,7 @@
     {
       "vw": 1216,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -12207,14 +11895,7 @@
     {
       "vw": 1280,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -13003,14 +12684,7 @@
     {
       "vw": 1344,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -13799,14 +13473,7 @@
     {
       "vw": 1408,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
@@ -14595,14 +14262,7 @@
     {
       "vw": 1440,
       "hOverflow": null,
-      "clipped": [
-        {
-          "el": "span.sr",
-          "scrollWidth": 28,
-          "clientWidth": 1,
-          "ellipsis": false
-        }
-      ],
+      "clipped": [],
       "smallTargets": [],
       "korean": [
         {
