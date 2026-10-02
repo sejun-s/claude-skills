@@ -9,6 +9,8 @@ for (const id of runs) {
   const p = await b.newPage({ viewport: { width: 375, height: 900 } });
   await p.goto(pathToFileURL(dir + 'index.html').href, { waitUntil: 'networkidle' });
   await p.evaluate(() => document.fonts.ready);
+  const fontOk = await p.evaluate(() => { const f = [...document.fonts].filter((x) => /Pretendard/.test(x.family)); return f.length > 0 && f.some((x) => x.status === 'loaded'); });
+  if (!fontOk) { console.error('FONT NOT LOADED for', id, '— run dir에 fonts/ 가 없다. (experiments/tools/fetch-fonts.sh 후 각 run의 fonts/ 로 복사)'); process.exit(3); }
   for (const w of [375, 768]) {
     await p.setViewportSize({ width: w, height: 900 }); await p.waitForTimeout(80);
     const h = await p.$('h1'); const bb = await h.boundingBox();

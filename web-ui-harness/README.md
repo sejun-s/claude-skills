@@ -1,6 +1,6 @@
 # Web UI Design Harness — 상태 (2026-10-02)
 
-**한 줄 상태: 기반·측정·baseline 완료, 승격된 기능 0개, 품질 판정은 사용자 blind 평가 대기.**
+**한 줄 상태: 기반·측정·baseline 완료, 승격된 기능 0개, 품질 판정은 사용자 blind 평가 대기. GPT 독립 QA(2026-10-02)로 측정 결함을 찾아 수정했고 일부 수치를 정정했다(`experiments/eval/gpt-qa-response.md`).**
 
 목표(브리프): Claude가 만든 한국어 웹 UI를 평균적인 AI 디자인에서 *의도 있는 디자인*으로 끌어올리는 Harness. 원칙: 기존 OSS 재사용 → baseline에서 반복 관찰된 failure만 기능으로 승격 → 자기평가를 최종 판정으로 쓰지 않는다.
 
@@ -14,7 +14,9 @@
 | Run 기록 | `experiments/runs/` | T1 A/B/CL/C, T3 A/B/CL/C, T3b B/D/C, T5 A/B/C (조건당 3회) |
 | Failure Log / Decision Log | `failures/log.md`, `decisions/log.md` | F-001~F-010, D-001~D-006 |
 | 확장 후보 1: 한국어 제목 구 줄바꿈 | `skills/ko-heading-wrap/` (v0.2.0) | **experimental, 효과 미입증** (T3b hold-out 재현 실패) |
-| 사용자 blind 평가 패키지 | `experiments/eval/human-blind/` (17쌍), `human-blind-headings/` (12쌍) | 생성·동작 검증 완료. **응답 대기** |
+| 사용자 blind 평가 패키지 | `experiments/eval/human-blind/` (17쌍), `human-blind-headings/` (12쌍) | 저장 충돌 수정·제목 이미지 폰트 복원 후 **재생성**(v2). **응답 대기** |
+| 독립 QA (GPT) | `experiments/eval/gpt-qa-2026-10-02/`, 대응: `experiments/eval/gpt-qa-response.md` | 6개 지적 모두 재현·수정. 폰트 누락으로 이전 제목 수치·crop 무효 → 재측정 |
+| gold v2 | `benchmarks/gold-nobreak-v2.json` | strong/soft 분리(탐색적). v1과 수치 혼합 금지 |
 
 ## 승격 상태
 - **승격 기능: 0개.** ko-heading-wrap은 T1·T3(자명한 gold)에서는 10→1이었으나 hold-out(어려운 gold, 위약 D 포함)에서 재현 실패 → 후보로 격하.
@@ -23,7 +25,7 @@
 
 ## 확인된 사실 (측정 기준)
 - 기존 스택(B)은 plain Claude(A)보다 T1 proxy 평가에서 일관되게 상위였으나, 카피 교란·같은 모델 계열 평가라 **품질 개선 근거로 쓰지 않는다**.
-- 반응형 기본 품질(오버플로·잘림·터치)은 T5에서 A/B/C 모두 0건 → 이 영역에는 Harness 불필요.
+- 반응형 기본 품질(오버플로·잘림·터치)은 T5(1 task, 조건당 3회)에서 A/B/C 모두 0건 → 현재 T5에서 추가 기능의 필요성은 관찰되지 않음(측정기의 미탐 가능성 포함).
 - 한국어 어절 중간 끊김은 본문/제목에서는 `keep-all`로 6/6 해결, 표 셀에서는 조건 무관 발생.
 - 에이전트 자기 보고는 반복해서 실측과 달랐다(문구 추가, "0건" 보고, 수정 후 재확인). 모든 사실은 렌더·측정으로 검증.
 

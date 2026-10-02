@@ -55,18 +55,18 @@ button{padding:10px 16px;border-radius:8px;border:1px solid var(--line);backgrou
 <div id="stage"></div><div class="nav"><button id="prev">이전</button><button id="next" class="p">다음</button></div>
 <div id="end" hidden><h1>끝났습니다</h1><p>아래 JSON을 복사해서 전달해 주세요.</p><textarea id="out" readonly></textarea></div></main>
 <script>
-const ITEMS=__ITEMS__;const KEY='human-blind-v1';let st={};try{st=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+const ITEMS=__ITEMS__;const PACK='__PACK__',SEED=__SEED__,KEY='hb-'+PACK+'-'+SEED;let st={};try{st=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
 let i=0;const $=s=>document.querySelector(s);const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
-const QP=[['intent','어느 쪽이 더 의도를 가지고 디자인된 것처럼 보이나요? (이유 없이 평균적인 선택이 적은 쪽)'],['use','어느 쪽을 실제 서비스에 쓰고 싶나요?'],['ai','어느 쪽이 더 \\'AI가 만든 것 같다\\'고 느껴지나요?']];const QH=[['read','어느 쪽 제목이 줄바꿈이 더 자연스럽고 읽기 편한가요?'],['awk','어느 쪽 제목에서 의미가 어색하게 끊기는 곳이 더 많나요?']];
+const QP=[['intent','어느 쪽이 더 의도를 가지고 디자인된 것처럼 보이나요? (이유 없이 평균적인 선택이 적은 쪽)'],['use','어느 쪽을 실제 서비스에 쓰고 싶나요?'],['ai','어느 쪽이 더 \\'AI가 만든 것 같다\\'고 느껴지나요?']];const QH=[['read_375','모바일(375px) 제목: 어느 쪽이 줄바꿈이 더 자연스럽고 읽기 편한가요?'],['read_768','태블릿(768px) 제목: 어느 쪽이 줄바꿈이 더 자연스럽고 읽기 편한가요?'],['awk','두 폭을 통틀어 어느 쪽에서 의미가 어색하게 끊기는 곳이 더 많나요?']];
 function radios(name,cur){return ['L:왼쪽','R:오른쪽','T:차이 없음'].map(x=>{const[v,t]=x.split(':');return `<label><input type=radio name="${name}" value="${v}" ${cur===v?'checked':''}>${t}</label>`}).join('')}
 function render(){const it=ITEMS[i];if(it.mode==='heading'){document.querySelector('h1').textContent='두 제목의 줄바꿈 비교';document.querySelector('p.s').textContent='문구는 같고 줄바꿈 위치만 다를 수 있습니다. 좌우 위치와 순서는 무작위이며, 어느 쪽이 어떻게 만들어졌는지는 알려주지 않습니다. 차이가 없으면 “차이 없음”을 고르세요.'}const r=st[it.id]||{};$('#prog').textContent=`${i+1} / ${ITEMS.length}`;
-const hd=it.mode==='heading';const side=(s,l)=>`<div class=side><h2>${l}${hd?' — 모바일(375px) 제목':''}</h2><img src="${it.imgs[s+'_fold']}" alt="" ${hd?'style="max-width:375px"':''}>${it.imgs[s+'_mob']?`<img src="${it.imgs[s+'_mob']}" style="max-width:260px" alt="">`:''}<details><summary>${hd?'태블릿(768px) 보기':'전체 보기'}</summary><img src="${it.imgs[s+'_full']}" alt=""></details></div>`;
+const hd=it.mode==='heading';const side=(s,l)=>`<div class=side><h2>${l}${hd?' — 모바일(375px) 제목':''}</h2><img src="${it.imgs[s+'_fold']}" alt="" ${hd?'style="max-width:375px"':''}>${it.imgs[s+'_mob']?`<img src="${it.imgs[s+'_mob']}" style="max-width:260px" alt="">`:''}${hd?`<h2 style="margin-top:10px">${l} — 태블릿(768px) 제목</h2><img src="${it.imgs[s+'_full']}" alt="" style="max-width:768px">`:`<details><summary>전체 보기</summary><img src="${it.imgs[s+'_full']}" alt=""></details>`}</div>`;
 $('#stage').innerHTML=`<div class=pair>${side('L','왼쪽')}${side('R','오른쪽')}</div>`+(hd?QH:QP).map(([k,t])=>`<fieldset><legend>${t}</legend>${radios(k,r[k])}</fieldset>`).join('')+`<fieldset><legend>한 줄 이유 (선택)</legend><input type=text id=why value="${(r.why||'').replace(/"/g,'&quot;')}"></fieldset>`;
 document.querySelectorAll('input[type=radio]').forEach(e=>e.onchange=()=>{(st[it.id]=st[it.id]||{})[e.name]=e.value;save()});
 $('#why').oninput=e=>{(st[it.id]=st[it.id]||{}).why=e.target.value;save()};$('#prev').disabled=i===0;$('#next').textContent=i===ITEMS.length-1?'완료':'다음';window.scrollTo(0,0)}
-$('#prev').onclick=()=>{i--;render()};$('#next').onclick=()=>{if(i<ITEMS.length-1){i++;render()}else{$('#stage').hidden=true;$('.nav').hidden=true;$('#end').hidden=false;$('#out').value=JSON.stringify(st,null,1)}};
-$('#exp').onclick=()=>{$('#stage').hidden=true;$('.nav').hidden=true;$('#end').hidden=false;$('#out').value=JSON.stringify(st,null,1)};render();
+$('#prev').onclick=()=>{i--;render()};$('#next').onclick=()=>{if(i<ITEMS.length-1){i++;render()}else{$('#stage').hidden=true;$('.nav').hidden=true;$('#end').hidden=false;$('#out').value=JSON.stringify({pack:PACK,seed:SEED,format:2,exported:new Date().toISOString(),answers:st},null,1)}};
+$('#exp').onclick=()=>{$('#stage').hidden=true;$('.nav').hidden=true;$('#end').hidden=false;$('#out').value=JSON.stringify({pack:PACK,seed:SEED,format:2,exported:new Date().toISOString(),answers:st},null,1)};render();
 </script></body></html>'''
-html = html.replace('__ITEMS__', json.dumps(items, ensure_ascii=False))
+html = html.replace('__ITEMS__', json.dumps(items, ensure_ascii=False)).replace('__PACK__', os.path.basename(out.rstrip('/'))).replace('__SEED__', str(seed))
 open(out + '/index.html', 'w', encoding='utf-8').write(html)
 print(f'{len(items)}쌍 생성 → {out}/index.html (키: <out>-key.json)')

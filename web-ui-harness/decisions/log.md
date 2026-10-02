@@ -47,3 +47,9 @@
 - 결정: **"효과 입증됨"을 철회한다.** SKILL.md를 *experimental* 로 격하(헤더에 상태 명시), `heading-lines.mjs`는 **측정 유틸**로 유지. Harness v0.1의 "승격 기능"은 현재 **0개**이며 ko-heading-wrap은 후보 상태다.
 - 판정은 사용자 blind 제목 비교(`experiments/eval/human-blind-headings`)로 확정한다: 사람이 C 제목을 더 자연스럽다고 일관되게 고르면 유지, 아니면 SKILL.md 삭제하고 유틸만 남긴다.
 - 한계 정직 표기: 효과는 gold(저자=Claude)·에이전트의 구 선택에 크게 의존하고, 표본은 조건당 3회다.
+
+## D-007 — GPT 독립 QA 반영 (2026-10-02)
+- GPT가 같은 브랜치에 QA 리포트를 올림. 6개 지적을 직접 재현해 모두 수용·수정(도구 v0.3, 평가 패키지 v2). 세부: `experiments/eval/gpt-qa-response.md`.
+- **중대한 자기 정정:** `collect-run.sh`의 폰트 삭제로 이후 제목 측정·crop이 대체 폰트로 이뤄졌음을 확인. 수치 재측정, 'T3-C-2 보고 불일치' 주장 철회, 이전 blind 제목 패키지와 GPT blind 평가 결과는 자극물 결함으로 **무효 처리**(재평가 필요).
+- D-006의 결정(효과 입증 철회, experimental 유지)은 유지. gold v2(strong)에서는 C가 B보다 일관되게 적고(T3b 1 vs 7), soft(긴 절)에서는 효과 없음.
+- 교훈: 측정 대상 렌더링 환경(폰트)을 측정 도구가 직접 검증하게 한다(heading-lines v0.3 exit 3, crop-headings 폰트 검사).

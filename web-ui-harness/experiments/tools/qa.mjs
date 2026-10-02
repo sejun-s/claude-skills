@@ -80,6 +80,11 @@ function measure() {
     const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
     const clash = rects.some((o, j) => {
       if (j === i) return false;
+      // 다른 타깃이 소형이면 그 타깃의 24px 원과도 겹치는지(중심 거리 < 24), 아니면 사각형과 12px 반경 원이 겹치는지
+      if (o.width < 24 || o.height < 24) {
+        const ox = o.left + o.width / 2, oy = o.top + o.height / 2;
+        return Math.hypot(ox - cx, oy - cy) < 24;
+      }
       const dx = Math.max(o.left - cx, 0, cx - o.right), dy = Math.max(o.top - cy, 0, cy - o.bottom);
       return Math.hypot(dx, dy) < 12;
     });
