@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>알파로그 프리딕트 | 설비 로그 기반 예지 정비</title>
+<meta name="description" content="공장 설비의 로그와 센서 데이터를 분석해 가동이 멈추기 전에 점검 시점을 알려주는 예지 정비 소프트웨어, 알파로그 프리딕트.">
+<style>
+@font-face{font-family:Pretendard;font-weight:400;font-display:swap;src:url(fonts/Pretendard-Regular.woff2) format("woff2")}
+@font-face{font-family:Pretendard;font-weight:500;font-display:swap;src:url(fonts/Pretendard-Medium.woff2) format("woff2")}
+@font-face{font-family:Pretendard;font-weight:600;font-display:swap;src:url(fonts/Pretendard-SemiBold.woff2) format("woff2")}
+@font-face{font-family:Pretendard;font-weight:700;font-display:swap;src:url(fonts/Pretendard-Bold.woff2) format("woff2")}
+:root{
+  --paper:#f6f7f9; --white:#fff; --ink:#14233b; --ink-2:#44526a; --line:#d9dde4;
+  --signal:#2b5fd9; --signal-d:#1f48ad; --night:#0f1d33; --night-2:#b9c6dc;
+  --gutter:clamp(20px,5vw,56px); --max:1180px;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font:400 17px/1.7 Pretendard,system-ui,sans-serif;color:var(--ink);background:var(--paper);word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:.2em}
+::selection{background:var(--signal);color:#fff}
+:focus-visible{outline:3px solid var(--signal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.nb{white-space:nowrap}
+h1,h2,h3{font-weight:700;letter-spacing:-.03em;line-height:1.25;text-wrap:balance}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:6px;font-weight:600;font-size:16px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;font-family:inherit;transition:background .15s,border-color .15s,color .15s}
+.btn-main{background:var(--signal);color:#fff}
+.btn-main:hover{background:var(--signal-d)}
+.btn-sub{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-sub:hover{background:var(--ink);color:#fff}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(246,247,249,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:32px;min-height:64px}
+.logo{font-weight:700;font-size:20px;letter-spacing:-.02em;text-decoration:none;margin-right:auto}
+.logo i{font-style:normal;color:var(--signal)}
+.nav a:not(.logo):not(.btn){font-size:15px;font-weight:500;color:var(--ink-2);text-decoration:none;padding:8px 0}
+.nav a:not(.logo):not(.btn):hover{color:var(--signal)}
+.nav .btn{min-height:40px;padding:0 18px;font-size:15px}
+
+/* hero */
+.hero{padding:clamp(48px,8vw,104px) 0 clamp(56px,8vw,96px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,5vw,72px);align-items:center}
+h1{font-size:clamp(27px,4.6vw,56px);line-height:1.22;letter-spacing:-.035em}
+.lead{margin-top:24px;font-size:clamp(17px,1.5vw,19px);color:var(--ink-2);max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.shot{position:relative}
+.shot img{width:100%;border-radius:12px;box-shadow:0 24px 48px -20px rgba(20,35,59,.28),0 4px 10px rgba(20,35,59,.06)}
+.hero-note{margin-top:14px;font-size:14px;color:var(--ink-2)}
+.line-img{margin-top:clamp(48px,6vw,80px)}
+.line-img img{width:100%;border-radius:8px;max-height:260px;object-fit:cover}
+
+/* sections */
+section{padding:clamp(64px,9vw,112px) 0}
+.sec-head{max-width:640px}
+h2{font-size:clamp(26px,3.2vw,40px)}
+.sec-head p{margin-top:16px;color:var(--ink-2)}
+
+/* features: ruled list */
+.feat{margin-top:56px;border-top:2px solid var(--ink)}
+.feat li{list-style:none;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:16px 48px;padding:32px 0;border-bottom:1px solid var(--line)}
+.feat h3{font-size:clamp(20px,2vw,24px)}
+.feat p{color:var(--ink-2);max-width:34em}
+
+/* flow */
+.flow{background:var(--white);border-block:1px solid var(--line)}
+.steps{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s;padding:0}
+.steps li{list-style:none;position:relative;padding:28px 24px 0 0;border-top:2px solid var(--line)}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;top:-15px;left:0;width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;font-size:14px;display:grid;place-items:center;line-height:1}
+.steps li:last-child{border-top-color:var(--signal)}
+.steps li:last-child::before{background:var(--signal)}
+.steps h3{font-size:20px;margin-top:6px}
+.steps p{margin-top:8px;font-size:16px;color:var(--ink-2)}
+
+/* results */
+.results{background:var(--night);color:#fff}
+.results h2{color:#fff}
+.results .sec-head p{color:var(--night-2)}
+.res-grid{margin-top:56px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,6vw,88px);align-items:start}
+.stats{display:grid;gap:0;padding:0}
+.stats li{list-style:none;display:grid;grid-template-columns:minmax(120px,170px) 1fr;gap:20px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(255,255,255,.2)}
+.stats li:last-child{border-bottom:1px solid rgba(255,255,255,.2)}
+.stats b{font-size:clamp(34px,4vw,48px);line-height:1;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stats span{color:var(--night-2);font-size:16px}
+.stats small{display:block;margin-top:4px;font-size:14px;color:#9eb0cc}
+blockquote{font-size:clamp(20px,2.2vw,26px);line-height:1.55;font-weight:500;letter-spacing:-.02em}
+blockquote footer{margin-top:20px;font-size:15px;font-weight:400;color:var(--night-2);letter-spacing:0}
+
+/* demo */
+.demo-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,88px);align-items:start}
+.demo-grid ul{margin-top:24px;padding:0;color:var(--ink-2)}
+.demo-grid li{list-style:none;padding:10px 0;border-top:1px solid var(--line)}
+form{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:clamp(24px,3vw,36px);display:grid;gap:18px}
+label{display:grid;gap:6px;font-weight:600;font-size:15px}
+input,textarea{font:inherit;font-weight:400;padding:12px 14px;border:1.5px solid #aab3c2;border-radius:6px;background:#fff;color:var(--ink);min-height:48px;width:100%}
+input:hover,textarea:hover{border-color:var(--ink-2)}
+input:focus-visible,textarea:focus-visible{outline:3px solid rgba(43,95,217,.35);outline-offset:0;border-color:var(--signal)}
+textarea{min-height:96px;resize:vertical}
+.fine{font-size:14px;color:var(--ink-2)}
+#ok{display:none;font-weight:600;color:var(--signal-d)}
+form.sent #ok{display:block}
+
+footer.site{background:var(--night);color:var(--night-2);padding:48px 0;font-size:15px;line-height:1.8}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:16px 48px;justify-content:space-between}
+footer.site strong{color:#fff;font-size:18px}
+footer.site a{color:#fff}
+
+@media (max-width:900px){
+  .hero-grid,.res-grid,.demo-grid,.feat li{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr;row-gap:44px}
+  .nav a:not(.logo):not(.btn){display:none}
+  .nav{gap:16px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .steps{grid-template-columns:1fr}
+  .stats li{grid-template-columns:1fr;gap:6px}
+  .cta .btn{flex:1 1 100%}
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero-grid>*{animation:in .7s cubic-bezier(.16,1,.3,1) both}
+  .hero-grid>*:last-child{animation-delay:.12s}
+  @keyframes in{from{opacity:0;transform:translateY(14px)}}
+}
+</style>
+</head>
+<body>
+<header>
+  <nav class="wrap nav" aria-label="주 메뉴">
+    <a class="logo" href="#top">알파로그<i>.</i></a>
+    <a href="#product">제품</a>
+    <a href="#cases">활용 사례</a>
+    <a href="#pricing">가격</a>
+    <a href="#company">회사 소개</a>
+    <a class="btn btn-main" href="#demo">데모 신청</a>
+  </nav>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>설비 로그에서 <span class="nb">고장의 징후</span>를 먼저 찾아냅니다</h1>
+        <p class="lead">알파로그 프리딕트는 공장 설비의 로그와 센서 데이터를 분석해, 가동이 <span class="nb">멈추기 전에</span> 점검 시점을 알려주는 <span class="nb">예지 정비</span> 소프트웨어입니다.</p>
+        <div class="cta">
+          <a class="btn btn-main" href="#demo">데모 신청하기</a>
+          <a class="btn btn-sub" href="#cases">도입 사례 보기</a>
+        </div>
+      </div>
+      <div class="shot">
+        <img src="assets/product-ui.svg" width="800" height="500" alt="설비 위험도 목록과 추이 그래프를 보여주는 알파로그 프리딕트 대시보드 화면">
+        <p class="hero-note">설비별 위험도와 추이를 한 화면에서 확인합니다.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="product" aria-labelledby="h-feat" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-feat">알려주고, 제안하고, <span class="nb">근거까지</span> 보여줍니다</h2>
+    </div>
+    <ul class="feat" style="padding:0">
+      <li><h3>이상 징후 조기 탐지</h3><p>설비별 정상 패턴을 학습해, 평소와 다른 로그가 나타나면 즉시 알립니다.</p></li>
+      <li><h3>점검 시점 추천</h3><p>고장 위험도와 생산 일정을 함께 고려해 가장 영향이 적은 점검 시간을 제안합니다.</p></li>
+      <li><h3>원인 후보 제시</h3><p>과거 고장 이력과 비교해 가능성이 높은 원인을 우선순위로 보여줍니다.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="flow" id="how" aria-labelledby="h-flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-flow">연결부터 운영까지, 평균 3주</h2>
+      <p>기존 설비는 그대로 두고 로그만 읽기 전용으로 연결합니다. 현장 담당자와 함께 예측을 검증한 뒤 운영을 시작합니다.</p>
+    </div>
+    <ol class="steps" style="padding-left:0">
+      <li><h3>연결</h3><p>기존 설비 로그와 PLC 데이터를 읽기 전용으로 연결합니다.</p></li>
+      <li><h3>학습</h3><p>최근 6개월 데이터로 설비별 정상 패턴을 학습합니다.</p></li>
+      <li><h3>검증</h3><p>2주간 예측 결과를 현장 담당자와 함께 확인합니다.</p></li>
+      <li><h3>운영</h3><p>이상 징후가 감지되면 담당자에게 알림과 점검 권고를 보냅니다.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="results" id="cases" aria-labelledby="h-res">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-res">도입한 공장에서 나타난 변화</h2>
+    </div>
+    <div class="res-grid">
+      <ul class="stats" style="padding:0">
+        <li><b>38%</b><span>비계획 정지 시간 감소<small>도입 6개월 후 평균, 12개 공장 기준</small></span></li>
+        <li><b>4.2일</b><span>이상 징후를 더 빨리 탐지<small>평균</small></span></li>
+        <li><b>3주</b><span>평균 도입 기간</span></li>
+      </ul>
+      <blockquote>
+        “점검 일정을 감으로 잡던 것에서 데이터로 근거를 대고 잡는 것으로 바뀌었습니다.”
+        <footer>김지훈, 가상정밀 생산기술팀 팀장</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" aria-labelledby="h-demo">
+  <div class="wrap demo-grid" id="demo">
+    <div>
+      <h2 id="h-demo">우리 공장 데이터로 <span class="nb">먼저 확인</span>해보세요</h2>
+      <p style="margin-top:16px;color:var(--ink-2)">데모를 신청하시면 담당자가 연락드려 설비 구성과 로그 환경을 확인하고, 도입 범위와 가격을 안내합니다.</p>
+      <ul>
+        <li>기존 설비 로그를 읽기 전용으로 연결합니다</li>
+        <li>평균 도입 기간은 3주입니다</li>
+        <li>2주 검증 후 운영 여부를 결정할 수 있습니다</li>
+      </ul>
+    </div>
+    <form id="f" novalidate>
+      <label>이름<input name="name" autocomplete="name" required></label>
+      <label>회사명<input name="co" autocomplete="organization" required></label>
+      <label>업무 이메일<input name="email" type="email" autocomplete="email" required></label>
+      <label>현재 겪는 설비 문제 (선택)<textarea name="msg"></textarea></label>
+      <button class="btn btn-main" type="submit">데모 신청하기</button>
+      <p class="fine">입력하신 정보는 데모 안내 목적으로만 사용합니다. <a href="#company">개인정보처리방침</a></p>
+      <p id="ok" role="status">신청이 접수되었습니다. 영업일 기준 1일 이내에 연락드리겠습니다.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="site" id="company">
+  <div class="wrap">
+    <div><strong>알파로그(주)</strong><br>서울특별시 성동구 가상로 100<br>02-000-0000 · <a href="mailto:contact@alphalog.example">contact@alphalog.example</a></div>
+    <div>© 2026 Alphalog Inc.<br><a href="#company">개인정보처리방침</a></div>
+  </div>
+</footer>
+<script>
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();var f=e.target,ok=true;
+  f.querySelectorAll('[required]').forEach(function(i){if(!i.checkValidity()){ok=false;i.setAttribute('aria-invalid','true')}else i.removeAttribute('aria-invalid')});
+  if(ok)f.classList.add('sent');else f.querySelector('[aria-invalid]').focus();
+});
+</script>
+</body>
+</html>
