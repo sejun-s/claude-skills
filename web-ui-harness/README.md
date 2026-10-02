@@ -1,5 +1,11 @@
 # Web UI Design Harness — 상태 (2026-10-02)
 
+## 바로 사용할 결과물 (GPT 후속 구현)
+
+사용자의 후속 요청에 따라 웹 UI 제작과 스킬 완성을 함께 진행했다. [GETTING-STARTED.md](GETTING-STARTED.md)에서 `web-ui-craft` 설치와 [알파로그 실사용 데모](experiments/gpt-phase/alphalog-v1/index.html) 실행을 안내한다. Impeccable 지침 재사용, 한국어 타입, portable 캡처, 실제 제품 컨트롤·모바일·폼 검증을 포함한다. [HANDOFF-REPORT.md](HANDOFF-REPORT.md)에 근거와 한계가 있다.
+
+아래는 기존 연구 상태다. 새 실사용 스킬을 검증된 실험 기능으로 승격한 것은 아니며, 기존 A/B/C/D 결과와 합산하지 않는다.
+
 **한 줄 상태: 기반·측정·baseline 완료, 승격된 기능 0개, 품질 판정은 사용자 blind 평가 대기. GPT 독립 QA(2026-10-02)로 측정 결함을 찾아 수정했고 일부 수치를 정정했다(`experiments/eval/gpt-qa-response.md`).**
 
 목표(브리프): Claude가 만든 한국어 웹 UI를 평균적인 AI 디자인에서 *의도 있는 디자인*으로 끌어올리는 Harness. 원칙: 기존 OSS 재사용 → baseline에서 반복 관찰된 failure만 기능으로 승격 → 자기평가를 최종 판정으로 쓰지 않는다.

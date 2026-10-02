@@ -1,0 +1,368 @@
+{
+  "target": "http://127.0.0.1:8787",
+  "runtime": {
+    "node": "v24.18.0",
+    "playwright": "1.62.1",
+    "browser": "154.0.8037.93",
+    "platform": "win32"
+  },
+  "viewports": [
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Pretendard",
+          "weight": "400",
+          "status": "loaded"
+        },
+        {
+          "family": "Pretendard",
+          "weight": "700",
+          "status": "loaded"
+        }
+      ],
+      "images": [],
+      "headings": [
+        {
+          "text": "멈추기 전에,이미 알고 있도록.",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "32px",
+          "overflow": false
+        },
+        {
+          "text": "설비 현황",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "17px",
+          "overflow": false
+        },
+        {
+          "text": "프레스 12",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "13px",
+          "overflow": false
+        },
+        {
+          "text": "알림에서 끝나지 않는현장의 판단 도구.",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "32px",
+          "overflow": false
+        },
+        {
+          "text": "더 빠른 대응은,더 이른 발견에서.",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "32px",
+          "overflow": false
+        },
+        {
+          "text": "기존 설비를 바꾸지 않고,현장에 맞춰 시작합니다.",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "31px",
+          "overflow": false
+        },
+        {
+          "text": "연결",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "20px",
+          "overflow": false
+        },
+        {
+          "text": "학습",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "20px",
+          "overflow": false
+        },
+        {
+          "text": "검증",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "20px",
+          "overflow": false
+        },
+        {
+          "text": "운영",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "20px",
+          "overflow": false
+        },
+        {
+          "text": "우리 공장 로그로이야기해볼까요?",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "32px",
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Pretendard",
+          "weight": "400",
+          "status": "loaded"
+        },
+        {
+          "family": "Pretendard",
+          "weight": "700",
+          "status": "loaded"
+        }
+      ],
+      "images": [],
+      "headings": [
+        {
+          "text": "멈추기 전에,이미 알고 있도록.",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "32.625px",
+          "overflow": false
+        },
+        {
+          "text": "설비 현황",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "17px",
+          "overflow": false
+        },
+        {
+          "text": "프레스 12",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "13px",
+          "overflow": false
+        },
+        {
+          "text": "알림에서 끝나지 않는현장의 판단 도구.",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "32px",
+          "overflow": false
+        },
+        {
+          "text": "더 빠른 대응은,더 이른 발견에서.",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "32px",
+          "overflow": false
+        },
+        {
+          "text": "기존 설비를 바꾸지 않고,현장에 맞춰 시작합니다.",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "31px",
+          "overflow": false
+        },
+        {
+          "text": "연결",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "20px",
+          "overflow": false
+        },
+        {
+          "text": "학습",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "20px",
+          "overflow": false
+        },
+        {
+          "text": "검증",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "20px",
+          "overflow": false
+        },
+        {
+          "text": "운영",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "20px",
+          "overflow": false
+        },
+        {
+          "text": "우리 공장 로그로이야기해볼까요?",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "32px",
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Pretendard",
+          "weight": "400",
+          "status": "loaded"
+        },
+        {
+          "family": "Pretendard",
+          "weight": "700",
+          "status": "loaded"
+        }
+      ],
+      "images": [],
+      "headings": [
+        {
+          "text": "멈추기 전에,이미 알고 있도록.",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "56px",
+          "overflow": false
+        },
+        {
+          "text": "설비 현황",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "19px",
+          "overflow": false
+        },
+        {
+          "text": "프레스 12",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "13px",
+          "overflow": false
+        },
+        {
+          "text": "알림에서 끝나지 않는현장의 판단 도구.",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "32px",
+          "overflow": false
+        },
+        {
+          "text": "더 빠른 대응은,더 이른 발견에서.",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "31px",
+          "overflow": false
+        },
+        {
+          "text": "기존 설비를 바꾸지 않고,현장에 맞춰 시작합니다.",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "30px",
+          "overflow": false
+        },
+        {
+          "text": "연결",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "21px",
+          "overflow": false
+        },
+        {
+          "text": "학습",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "21px",
+          "overflow": false
+        },
+        {
+          "text": "검증",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "21px",
+          "overflow": false
+        },
+        {
+          "text": "운영",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "21px",
+          "overflow": false
+        },
+        {
+          "text": "우리 공장 로그로이야기해볼까요?",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "32px",
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Pretendard",
+          "weight": "400",
+          "status": "loaded"
+        },
+        {
+          "family": "Pretendard",
+          "weight": "700",
+          "status": "loaded"
+        }
+      ],
+      "images": [],
+      "headings": [
+        {
+          "text": "멈추기 전에,이미 알고 있도록.",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "76.32px",
+          "overflow": false
+        },
+        {
+          "text": "설비 현황",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "19px",
+          "overflow": false
+        },
+        {
+          "text": "프레스 12",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "13px",
+          "overflow": false
+        },
+        {
+          "text": "알림에서 끝나지 않는현장의 판단 도구.",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "43.2px",
+          "overflow": false
+        },
+        {
+          "text": "더 빠른 대응은,더 이른 발견에서.",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "37px",
+          "overflow": false
+        },
+        {
+          "text": "기존 설비를 바꾸지 않고,현장에 맞춰 시작합니다.",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "36px",
+          "overflow": false
+        },
+        {
+          "text": "연결",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "21px",
+          "overflow": false
+        },
+        {
+          "text": "학습",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "21px",
+          "overflow": false
+        },
+        {
+          "text": "검증",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "21px",
+          "overflow": false
+        },
+        {
+          "text": "운영",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "21px",
+          "overflow": false
+        },
+        {
+          "text": "우리 공장 로그로이야기해볼까요?",
+          "font": "Pretendard, \"Malgun Gothic\", sans-serif",
+          "size": "43.2px",
+          "overflow": false
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "network": [],
+  "fonts": [
+    {
+      "url": "http://127.0.0.1:8787/fonts/Pretendard-Regular.woff2",
+      "sha256": "fad853f7f47c6c8b103171e7193fa095708cdcd70850a71d93aa5379e8a61d63"
+    },
+    {
+      "url": "http://127.0.0.1:8787/fonts/Pretendard-Bold.woff2",
+      "sha256": "4609c3356e536fafe38f4add0daeceb3d8595d3057bce13c428c33ddbd43d362"
+    }
+  ],
+  "pass": true
+}

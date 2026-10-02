@@ -1,0 +1,15 @@
+{
+  "revision": "7aeb0698819be2b4097dae8ec8fe6a795e5cf3ae",
+  "files": [
+    {
+      "name": "Pretendard-Regular.woff2",
+      "url": "https://raw.githubusercontent.com/orioncactus/pretendard/7aeb0698819be2b4097dae8ec8fe6a795e5cf3ae/packages/pretendard/dist/web/static/woff2/Pretendard-Regular.woff2",
+      "sha256": "fad853f7f47c6c8b103171e7193fa095708cdcd70850a71d93aa5379e8a61d63"
+    },
+    {
+      "name": "Pretendard-Bold.woff2",
+      "url": "https://raw.githubusercontent.com/orioncactus/pretendard/7aeb0698819be2b4097dae8ec8fe6a795e5cf3ae/packages/pretendard/dist/web/static/woff2/Pretendard-Bold.woff2",
+      "sha256": "4609c3356e536fafe38f4add0daeceb3d8595d3057bce13c428c33ddbd43d362"
+    }
+  ]
+}

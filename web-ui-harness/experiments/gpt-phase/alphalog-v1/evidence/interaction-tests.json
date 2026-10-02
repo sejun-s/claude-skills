@@ -1,0 +1,482 @@
+{
+  "checks": [
+    {
+      "name": "Semantic entry",
+      "status": "pass",
+      "detail": "One h1, Korean document language"
+    },
+    {
+      "name": "Machine selection",
+      "status": "pass",
+      "detail": "Name, risk, chart description and recommendation update"
+    },
+    {
+      "name": "Period control",
+      "status": "pass",
+      "detail": "Chart data and accessible label update"
+    },
+    {
+      "name": "Keyboard tabs",
+      "status": "pass",
+      "detail": "ArrowRight and Home change focus, selected state and panels"
+    },
+    {
+      "name": "Feature disclosure",
+      "status": "pass",
+      "detail": "Native details opens feature copy"
+    },
+    {
+      "name": "Form validation and honest completion",
+      "status": "pass",
+      "detail": "Required/email errors; generated text is inert; no POST requests"
+    },
+    {
+      "name": "Clipboard action",
+      "status": "pass",
+      "detail": "Copied actual prepared request"
+    },
+    {
+      "name": "Prepared request consistency",
+      "status": "pass",
+      "detail": "Editing a field clears the stale prepared result"
+    },
+    {
+      "name": "Mobile navigation",
+      "status": "pass",
+      "detail": "Toggle, Escape and anchor close menu"
+    },
+    {
+      "name": "Responsive interaction stress",
+      "status": "pass",
+      "detail": "No document overflow at six widths after form expansion and state changes"
+    },
+    {
+      "name": "Information page",
+      "status": "pass",
+      "detail": "Privacy explanation and return link work"
+    },
+    {
+      "name": "Text contrast",
+      "status": "pass",
+      "detail": {
+        "pairs": [
+          {
+            "text": "alphalog.",
+            "color": "rgb(24, 62, 53)",
+            "background": [
+              247,
+              249,
+              244
+            ],
+            "ratio": 11.13,
+            "threshold": 3
+          },
+          {
+            "text": ".",
+            "color": "rgb(70, 118, 66)",
+            "background": [
+              247,
+              249,
+              244
+            ],
+            "ratio": 5.04,
+            "threshold": 3
+          },
+          {
+            "text": "제품",
+            "color": "rgb(24, 62, 53)",
+            "background": [
+              247,
+              249,
+              244
+            ],
+            "ratio": 11.13,
+            "threshold": 4.5
+          },
+          {
+            "text": "데모 요청 준비",
+            "color": "rgb(255, 255, 255)",
+            "background": [
+              24,
+              62,
+              53
+            ],
+            "ratio": 11.8,
+            "threshold": 4.5
+          },
+          {
+            "text": "제조 현장을 위한 예지 정비 소프트웨어",
+            "color": "rgb(82, 101, 93)",
+            "background": [
+              247,
+              249,
+              244
+            ],
+            "ratio": 5.86,
+            "threshold": 4.5
+          },
+          {
+            "text": ".",
+            "color": "rgb(100, 137, 46)",
+            "background": [
+              247,
+              249,
+              244
+            ],
+            "ratio": 3.84,
+            "threshold": 3
+          },
+          {
+            "text": "생산 현장 모니터링",
+            "color": "rgb(212, 227, 216)",
+            "background": [
+              24,
+              62,
+              53
+            ],
+            "ratio": 8.87,
+            "threshold": 4.5
+          },
+          {
+            "text": "예시 데이터",
+            "color": "rgb(226, 244, 196)",
+            "background": [
+              24,
+              62,
+              53
+            ],
+            "ratio": 10.1,
+            "threshold": 4.5
+          },
+          {
+            "text": "성수 제1공장 예시 현장",
+            "color": "rgb(24, 62, 53)",
+            "background": [
+              240,
+              244,
+              237
+            ],
+            "ratio": 10.6,
+            "threshold": 4.5
+          },
+          {
+            "text": "예시 현장",
+            "color": "rgb(82, 101, 93)",
+            "background": [
+              240,
+              244,
+              237
+            ],
+            "ratio": 5.59,
+            "threshold": 4.5
+          },
+          {
+            "text": "설비 현황",
+            "color": "rgb(24, 62, 53)",
+            "background": [
+              224,
+              233,
+              217
+            ],
+            "ratio": 9.46,
+            "threshold": 4.5
+          },
+          {
+            "text": "설비 현황",
+            "color": "rgb(24, 62, 53)",
+            "background": [
+              255,
+              255,
+              255
+            ],
+            "ratio": 11.8,
+            "threshold": 3
+          },
+          {
+            "text": "징후를 먼저 확인하고, 점검의 우선순위를 정하세요.",
+            "color": "rgb(82, 101, 93)",
+            "background": [
+              255,
+              255,
+              255
+            ],
+            "ratio": 6.22,
+            "threshold": 4.5
+          },
+          {
+            "text": "위험도 분석",
+            "color": "rgb(24, 62, 53)",
+            "background": [
+              255,
+              255,
+              255
+            ],
+            "ratio": 11.8,
+            "threshold": 4.5
+          },
+          {
+            "text": "3",
+            "color": "rgb(82, 101, 93)",
+            "background": [
+              237,
+              242,
+              232
+            ],
+            "ratio": 5.47,
+            "threshold": 4.5
+          },
+          {
+            "text": "프레스 12프레스 공정",
+            "color": "rgb(24, 62, 53)",
+            "background": [
+              240,
+              245,
+              233
+            ],
+            "ratio": 10.65,
+            "threshold": 4.5
+          },
+          {
+            "text": "프레스 공정",
+            "color": "rgb(82, 101, 93)",
+            "background": [
+              240,
+              245,
+              233
+            ],
+            "ratio": 5.61,
+            "threshold": 4.5
+          },
+          {
+            "text": "주의 78%",
+            "color": "rgb(155, 67, 29)",
+            "background": [
+              240,
+              245,
+              233
+            ],
+            "ratio": 5.89,
+            "threshold": 4.5
+          },
+          {
+            "text": "관찰 46%",
+            "color": "rgb(120, 96, 25)",
+            "background": [
+              255,
+              255,
+              255
+            ],
+            "ratio": 6.02,
+            "threshold": 4.5
+          },
+          {
+            "text": "정상 18%",
+            "color": "rgb(52, 102, 64)",
+            "background": [
+              255,
+              255,
+              255
+            ],
+            "ratio": 6.73,
+            "threshold": 4.5
+          },
+          {
+            "text": "7일",
+            "color": "rgb(24, 62, 53)",
+            "background": [
+              237,
+              243,
+              229
+            ],
+            "ratio": 10.43,
+            "threshold": 4.5
+          },
+          {
+            "text": "점검 권장",
+            "color": "rgb(155, 67, 29)",
+            "background": [
+              255,
+              255,
+              255
+            ],
+            "ratio": 6.53,
+            "threshold": 4.5
+          },
+          {
+            "text": "금형 온도와 진동을 확인하세요",
+            "color": "rgb(24, 62, 53)",
+            "background": [
+              237,
+              244,
+              229
+            ],
+            "ratio": 10.49,
+            "threshold": 4.5
+          },
+          {
+            "text": "생산 일정에 맞춰 10월 5일 점검을 권장합니다.",
+            "color": "rgb(82, 101, 93)",
+            "background": [
+              237,
+              244,
+              229
+            ],
+            "ratio": 5.53,
+            "threshold": 4.5
+          },
+          {
+            "text": "설비 로그 · PLC 데이터 연결",
+            "color": "rgb(82, 101, 93)",
+            "background": [
+              246,
+              248,
+              243
+            ],
+            "ratio": 5.81,
+            "threshold": 4.5
+          },
+          {
+            "text": "정상 패턴 학습 → 변화 감지",
+            "color": "rgb(64, 97, 53)",
+            "background": [
+              233,
+              240,
+              222
+            ],
+            "ratio": 6.04,
+            "threshold": 4.5
+          },
+          {
+            "text": "현장의 변화 · 가상 사례",
+            "color": "rgb(201, 221, 200)",
+            "background": [
+              24,
+              62,
+              53
+            ],
+            "ratio": 8.24,
+            "threshold": 4.5
+          },
+          {
+            "text": "더 빠른 대응은,더 이른 발견에서.",
+            "color": "rgb(247, 249, 244)",
+            "background": [
+              24,
+              62,
+              53
+            ],
+            "ratio": 11.13,
+            "threshold": 3
+          },
+          {
+            "text": "“점검 일정을 감으로 잡던 것에서데이터로 근거를 대고 잡는 것으로바뀌었습니다.”",
+            "color": "rgb(226, 234, 221)",
+            "background": [
+              24,
+              62,
+              53
+            ],
+            "ratio": 9.58,
+            "threshold": 4.5
+          },
+          {
+            "text": "김지훈 · 가상정밀 생산기술팀 팀장",
+            "color": "rgb(191, 206, 191)",
+            "background": [
+              24,
+              62,
+              53
+            ],
+            "ratio": 7.19,
+            "threshold": 4.5
+          },
+          {
+            "text": "비계획 정지 시간",
+            "color": "rgb(206, 224, 200)",
+            "background": [
+              24,
+              62,
+              53
+            ],
+            "ratio": 8.5,
+            "threshold": 4.5
+          },
+          {
+            "text": "38",
+            "color": "rgb(214, 246, 107)",
+            "background": [
+              24,
+              62,
+              53
+            ],
+            "ratio": 9.7,
+            "threshold": 3
+          },
+          {
+            "text": "일 빠르게",
+            "color": "rgb(220, 232, 213)",
+            "background": [
+              24,
+              62,
+              53
+            ],
+            "ratio": 9.3,
+            "threshold": 4.5
+          },
+          {
+            "text": "우리 현장의 다음 점검",
+            "color": "rgb(82, 101, 93)",
+            "background": [
+              234,
+              240,
+              226
+            ],
+            "ratio": 5.35,
+            "threshold": 4.5
+          },
+          {
+            "text": "우리 공장 로그로이야기해볼까요?",
+            "color": "rgb(24, 62, 53)",
+            "background": [
+              234,
+              240,
+              226
+            ],
+            "ratio": 10.15,
+            "threshold": 3
+          },
+          {
+            "text": "복잡한 도입보다, 작은 확인부터.",
+            "color": "rgb(24, 62, 53)",
+            "background": [
+              234,
+              240,
+              226
+            ],
+            "ratio": 10.15,
+            "threshold": 4.5
+          }
+        ],
+        "failures": [],
+        "scope": "Visible HTML text; SVG, imagery, focus and hover need separate inspection"
+      }
+    },
+    {
+      "name": "Capture negative control: overflow",
+      "status": "pass",
+      "detail": "Document overflow rejected"
+    },
+    {
+      "name": "Capture negative control: font",
+      "status": "pass",
+      "detail": "Missing font rejected"
+    },
+    {
+      "name": "Reduced motion",
+      "status": "pass",
+      "detail": "CSS honors reduced motion preference; content remains visible"
+    }
+  ],
+  "pass": true,
+  "browser": "154.0.8037.93"
+}
