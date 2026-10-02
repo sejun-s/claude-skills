@@ -1,0 +1,12 @@
+{
+ "note": "blind key — evaluators must not read this file",
+ "seed": 20261002,
+ "key": {
+  "S1": "T1-A-1",
+  "S2": "T1-B-1",
+  "S3": "T1-B-2",
+  "S4": "T1-A-3",
+  "S5": "T1-B-3",
+  "S6": "T1-A-2"
+ }
+}
