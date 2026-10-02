@@ -7,7 +7,7 @@
 | 텍스트 | `content.md`의 문구를 **그대로** 사용. 추가/삭제/수정 금지. 순서 변경은 허용(IA 재배치는 디자인 판단), 단 누락 금지 |
 | 이미지 | `assets/`의 파일만 사용. 외부 이미지·스톡·생성 이미지 금지. 사용하지 않아도 됨 |
 | 기능 | `acceptance.md`의 기능 요구를 충족 |
-| 폰트 | `experiments/tools/fonts/Pretendard-*.woff2`를 상대경로 `@font-face`로 사용. CDN/외부 요청 금지 (이 환경은 CDN 차단, 측정 일관성 목적) |
+| 폰트 | `experiments/tools/fonts/Pretendard-*.woff2`를 작업 폴더의 `fonts/`에서 상대경로 `@font-face`로 사용 (run 시작 시 `new-run.sh`가 복사). CDN/외부 요청 금지 (이 환경은 CDN 차단, 측정 일관성 목적) |
 | 산출물 | 단일 `index.html` + 선택적 `style.css`/`script.js`. 프레임워크/빌드 불필요 |
 | 프롬프트 | 각 task의 `brief.md` 본문을 **한 글자도 바꾸지 않고** 조건 A/B에 전달 |
 
