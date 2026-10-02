@@ -1,0 +1,20 @@
+{
+  "scope": "Independent Korean semantic and typography judgment, not a grammatical correctness standard. A phrase may be coherent without requiring indivisible line layout.",
+  "phrases": [
+    {"task":"T1","phrase":"고장의 징후","strength":"high preference","judgment":"Clear modifier and head; preserve where possible. Cross-line display is not grammatical error."},
+    {"task":"T3","phrase":"멈추기 전에","strength":"high preference","judgment":"A cohesive temporal expression. Useful strong candidate."},
+    {"task":"T3","phrase":"예지 정비","strength":"high preference","judgment":"Technical compound term. Useful strong candidate."},
+    {"task":"T3","phrase":"달라지는 방식","strength":"soft preference","judgment":"Modifier plus noun; coherent but lawful break after modifier can remain readable."},
+    {"task":"T3","phrase":"순서의 문제","strength":"soft preference","judgment":"Coherent noun phrase, but not a fixed indivisible term."},
+    {"task":"T3","phrase":"현장이 얻은 것","strength":"soft preference","judgment":"A larger clause. Prioritize 얻은 것 rather than requiring the subject to remain on its line."},
+    {"task":"T3b","phrase":"절반으로 줄이고도","strength":"soft preference","judgment":"Good whole clause when space allows; an adverbial/predicate break is not automatically awkward."},
+    {"task":"T3b","phrase":"오배송이 늘지 않은","strength":"soft preference","judgment":"Excludes the head 이유. Legitimate alternative chunks include 오배송이 / 늘지 않은 이유. Gold should not penalize that choice as an objective failure."},
+    {"task":"T3b","phrase":"2.4배 빨라진","strength":"soft preference","judgment":"Number-unit plus predicate; prioritize 2.4배 itself. Predicate may reasonably move to next line."},
+    {"task":"T3b","phrase":"출고 속도","strength":"high preference","judgment":"Short domain concept; reasonable strong candidate."},
+    {"task":"T3b","phrase":"AI 도입 3년 차","strength":"soft preference","judgment":"Contains separate units AI 도입 and 3년 차; prioritize these rather than the entire string."},
+    {"task":"T3b","phrase":"데이터를 믿지 않는","strength":"soft preference","judgment":"Long modifier clause. Splitting object from predicate can remain readable."},
+    {"task":"T3b","phrase":"베테랑을 설득하는 법","strength":"soft preference","judgment":"Long object/predicate/head group; prioritize 설득하는 법. Entire phrase is layout dependent."},
+    {"task":"T3b","phrase":"예외 상황 처리","strength":"high preference, flexible extent","judgment":"Coherent domain concept; prioritize 예외 상황. Appending 처리 is reasonable but not mandatory."}
+  ],
+  "recommendation": "Maintain stronger and softer phrase sets separately; allow acceptable alternative boundaries. Report gold match coverage and human preference separately. Freeze any revised gold for future experiments; retain old scores unchanged."
+}

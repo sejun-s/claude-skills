@@ -1,0 +1,20 @@
+{
+  "reviewed_at": "2026-10-02",
+  "commit": "a5b8b32f3ddef8f20ff84527294c42d72dd850bb",
+  "method": "Original PNGs viewed at 375px and 768px before opening arm key, gold, README, or prior evaluations. Pair manifest was inspected and reveals intended arm comparisons but not randomized sides. This is a single model proxy, not a human evaluation.",
+  "policy": "read/awk prioritize 375px; use 768px to break mobile ties. Font size differences alone do not determine semantic wrapping preference. null means invalid stimulus.",
+  "ratings": {
+    "P01": {"read":"L","awk":"R","mobile":"T","tablet":"L","why":"Mobile same breaks; tablet left keeps 절반으로 줄이고도 together."},
+    "P02": {"read":"L","awk":"R","mobile":"L","tablet":"L","why":"Left keeps 고장의 징후를 together at both widths; right separates modifier and noun."},
+    "P03": {"read":"R","awk":"L","mobile":"R","tablet":"R","why":"Right keeps 예지 정비가 and 라인을 멈추기 전에 together, though tablet uses more lines."},
+    "P04": {"read":"R","awk":"L","mobile":"T","tablet":"R","why":"Mobile identical semantic lines; tablet right keeps 고장의 징후를 together."},
+    "P05": {"read":"R","awk":"L","mobile":"T","tablet":"R","why":"Mobile identical lines; tablet right keeps 절반으로 줄이고도 together."},
+    "P06": {"read":"R","awk":"L","mobile":"R","tablet":"T","why":"Mobile right preserves three larger clauses; tablet breaks are identical."},
+    "P07": {"read":"R","awk":"L","mobile":"R","tablet":"T","why":"Mobile left separates 예지 from 정비가; right does not. Tablet same breaks."},
+    "P08": {"read":"R","awk":"L","mobile":"R","tablet":"R","why":"Right preserves 예지 정비가 on mobile and the main/subtitle boundary on tablet."},
+    "P09": {"read":"L","awk":"R","mobile":"L","tablet":"L","why":"Left keeps 절반으로 줄이고도 and 오배송이 늘지 않은 이유 together."},
+    "P10": {"read":null,"awk":null,"mobile":null,"tablet":null,"why":"All four stimuli blank. Pair is unrateable, not a tie."},
+    "P11": {"read":"L","awk":"R","mobile":"L","tablet":"L","why":"Left keeps the larger clauses intact at both widths; font size alone not judged."},
+    "P12": {"read":"R","awk":"L","mobile":"T","tablet":"R","why":"Mobile same breaks; tablet right keeps 고장의 징후를 together."}
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "correction": "P10 was mistakenly interpreted as blank in the first image tool output. Reopening original PNGs and checking pixels confirms all four stimuli contain headings. The stimulus-invalid claim is withdrawn.",
+  "exclusion_reason": "P10 was re-viewed after the arm key had been opened, so an independent pre-key preference cannot be recovered in this session.",
+  "post_key_only": {"P10": {"read":"R","awk":"L","mobile":"R","tablet":"R","why":"Right better preserves the larger clauses on mobile. Tablet left has an extra clause split. This preference is not blind."}},
+  "independent_summary": {"B_vs_C":{"C":7,"B":2,"tie":0,"pairs":9},"D_vs_C":{"C":1,"D":1,"tie":0,"pairs":2,"excluded":1},"T3b_B_vs_C":{"C":1,"B":2,"pairs":3}},
+  "mobile_only": {"B_vs_C":{"C":4,"B":2,"tie":3},"D_vs_C":{"C":0,"D":1,"tie":1,"excluded":1}},
+  "limitations": "One model evaluator; no inferential statistics. Tablet resolves mobile ties in primary summary. No prior Claude rating on these exact 12 pairs was found. Existing T1-proxy-panel ranks whole pages under A/B and is not comparable. Pre-key manifest exposed which arms were intended to be compared but not sides. Preserve initial recording for provenance; interpret it with this correction."
+}

@@ -1,0 +1,1063 @@
+{
+  "runtime": "154.0.8037.93",
+  "touchSpacing": {
+    "vw": 768,
+    "hOverflow": null,
+    "clipped": [],
+    "smallTargets": [],
+    "korean": [],
+    "expected": "Both targets fail circle-circle spacing: centers 20px apart, required 24px. Current smallTargets is empty."
+  },
+  "mixedFont": {
+    "status": 1,
+    "stdout": "[\n {\n  \"width\": 768,\n  \"tag\": \"h1\",\n  \"text\": \"신규가입혜택\",\n  \"lines\": [\n   \"신규\",\n   \"가입\",\n   \"혜택\"\n  ],\n  \"brokenPhrases\": [\n   \"신규가입혜택\"\n  ],\n  \"overflowX\": false,\n  \"orphan\": true\n }\n]\n\n제목 1개 × 폭 1: 구 쪼개짐 1건, 가로 넘침 0건, 마지막 줄 고아 1건\n",
+    "stderr": "",
+    "validJson": false
+  },
+  "absentPhrase": {
+    "status": 0,
+    "stdout": "[\n {\n  \"width\": 768,\n  \"tag\": \"h1\",\n  \"text\": \"다른제목\",\n  \"lines\": [\n   \"다른 제목\"\n  ],\n  \"brokenPhrases\": [],\n  \"overflowX\": false,\n  \"orphan\": false\n }\n]\n\n제목 1개 × 폭 1: 구 쪼개짐 0건, 가로 넘침 0건, 마지막 줄 고아 0건\n",
+    "stderr": "",
+    "validJson": false
+  },
+  "blindDecoded": [
+    {
+      "id": "P01",
+      "read": "L",
+      "awk": "R",
+      "mobile": "T",
+      "tablet": "L",
+      "why": "Mobile same breaks; tablet left keeps 절반으로 줄이고도 together.",
+      "task": "T3b",
+      "left": "T3b-C-1",
+      "right": "T3b-B-1",
+      "repeat": false,
+      "mode": "heading",
+      "preferred": "T3b-C-1"
+    },
+    {
+      "id": "P02",
+      "read": "L",
+      "awk": "R",
+      "mobile": "L",
+      "tablet": "L",
+      "why": "Left keeps 고장의 징후를 together at both widths; right separates modifier and noun.",
+      "task": "T1",
+      "left": "T1-C-2",
+      "right": "T1-B-2",
+      "repeat": false,
+      "mode": "heading",
+      "preferred": "T1-C-2"
+    },
+    {
+      "id": "P03",
+      "read": "R",
+      "awk": "L",
+      "mobile": "R",
+      "tablet": "R",
+      "why": "Right keeps 예지 정비가 and 라인을 멈추기 전에 together, though tablet uses more lines.",
+      "task": "T3",
+      "left": "T3-B-2",
+      "right": "T3-C-2",
+      "repeat": false,
+      "mode": "heading",
+      "preferred": "T3-C-2"
+    },
+    {
+      "id": "P04",
+      "read": "R",
+      "awk": "L",
+      "mobile": "T",
+      "tablet": "R",
+      "why": "Mobile identical semantic lines; tablet right keeps 고장의 징후를 together.",
+      "task": "T1",
+      "left": "T1-B-1",
+      "right": "T1-C-1",
+      "repeat": false,
+      "mode": "heading",
+      "preferred": "T1-C-1"
+    },
+    {
+      "id": "P05",
+      "read": "R",
+      "awk": "L",
+      "mobile": "T",
+      "tablet": "R",
+      "why": "Mobile identical lines; tablet right keeps 절반으로 줄이고도 together.",
+      "task": "T3b",
+      "left": "T3b-D-1",
+      "right": "T3b-C-1",
+      "repeat": false,
+      "mode": "heading",
+      "preferred": "T3b-C-1"
+    },
+    {
+      "id": "P06",
+      "read": "R",
+      "awk": "L",
+      "mobile": "R",
+      "tablet": "T",
+      "why": "Mobile right preserves three larger clauses; tablet breaks are identical.",
+      "task": "T3b",
+      "left": "T3b-C-2",
+      "right": "T3b-B-2",
+      "repeat": false,
+      "mode": "heading",
+      "preferred": "T3b-B-2"
+    },
+    {
+      "id": "P07",
+      "read": "R",
+      "awk": "L",
+      "mobile": "R",
+      "tablet": "T",
+      "why": "Mobile left separates 예지 from 정비가; right does not. Tablet same breaks.",
+      "task": "T3",
+      "left": "T3-B-1",
+      "right": "T3-C-1",
+      "repeat": false,
+      "mode": "heading",
+      "preferred": "T3-C-1"
+    },
+    {
+      "id": "P08",
+      "read": "R",
+      "awk": "L",
+      "mobile": "R",
+      "tablet": "R",
+      "why": "Right preserves 예지 정비가 on mobile and the main/subtitle boundary on tablet.",
+      "task": "T3",
+      "left": "T3-B-3",
+      "right": "T3-C-3",
+      "repeat": false,
+      "mode": "heading",
+      "preferred": "T3-C-3"
+    },
+    {
+      "id": "P09",
+      "read": "L",
+      "awk": "R",
+      "mobile": "L",
+      "tablet": "L",
+      "why": "Left keeps 절반으로 줄이고도 and 오배송이 늘지 않은 이유 together.",
+      "task": "T3b",
+      "left": "T3b-B-3",
+      "right": "T3b-C-3",
+      "repeat": false,
+      "mode": "heading",
+      "preferred": "T3b-B-3"
+    },
+    {
+      "id": "P10",
+      "read": null,
+      "awk": null,
+      "mobile": null,
+      "tablet": null,
+      "why": "All four stimuli blank. Pair is unrateable, not a tie.",
+      "task": "T3b",
+      "left": "T3b-C-3",
+      "right": "T3b-D-3",
+      "repeat": false,
+      "mode": "heading",
+      "preferred": null
+    },
+    {
+      "id": "P11",
+      "read": "L",
+      "awk": "R",
+      "mobile": "L",
+      "tablet": "L",
+      "why": "Left keeps the larger clauses intact at both widths; font size alone not judged.",
+      "task": "T3b",
+      "left": "T3b-D-2",
+      "right": "T3b-C-2",
+      "repeat": false,
+      "mode": "heading",
+      "preferred": "T3b-D-2"
+    },
+    {
+      "id": "P12",
+      "read": "R",
+      "awk": "L",
+      "mobile": "T",
+      "tablet": "R",
+      "why": "Mobile same breaks; tablet right keeps 고장의 징후를 together.",
+      "task": "T1",
+      "left": "T1-B-3",
+      "right": "T1-C-3",
+      "repeat": false,
+      "mode": "heading",
+      "preferred": "T1-C-3"
+    }
+  ],
+  "reportAudit": [
+    {
+      "run": "T1-A-1",
+      "widths": 20,
+      "raw": 20,
+      "defects": {},
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 2,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "32px",
+          "chars": 24
+        }
+      ]
+    },
+    {
+      "run": "T1-A-2",
+      "widths": 20,
+      "raw": 20,
+      "defects": {},
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 2,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "32px",
+          "chars": 24
+        }
+      ]
+    },
+    {
+      "run": "T1-A-3",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 1
+      },
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 2,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "32px",
+          "chars": 24
+        }
+      ]
+    },
+    {
+      "run": "T1-B-1",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 9
+      },
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 2,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "36px",
+          "chars": 24
+        }
+      ]
+    },
+    {
+      "run": "T1-B-2",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 2
+      },
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 2,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "33.6px",
+          "chars": 24
+        }
+      ]
+    },
+    {
+      "run": "T1-B-3",
+      "widths": 20,
+      "raw": 20,
+      "defects": {},
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 2,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "34px",
+          "chars": 24
+        }
+      ]
+    },
+    {
+      "run": "T1-C-1",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 1
+      },
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 1,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "32px",
+          "chars": 8
+        }
+      ]
+    },
+    {
+      "run": "T1-C-2",
+      "widths": 20,
+      "raw": 20,
+      "defects": {},
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 1,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "32px",
+          "chars": 7
+        },
+        {
+          "el": "h1",
+          "lines": 2,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "32px",
+          "chars": 8
+        }
+      ]
+    },
+    {
+      "run": "T1-C-3",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 1
+      },
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 1,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "32px",
+          "chars": 8
+        }
+      ]
+    },
+    {
+      "run": "T1-CL-1",
+      "widths": 20,
+      "raw": 20,
+      "defects": {},
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 1,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "27px",
+          "chars": 7
+        },
+        {
+          "el": "h1",
+          "lines": 2,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "27px",
+          "chars": 10
+        }
+      ]
+    },
+    {
+      "run": "T1-CL-2",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 2
+      },
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 1,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "32px",
+          "chars": 7
+        },
+        {
+          "el": "h1",
+          "lines": 2,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "32px",
+          "chars": 8
+        }
+      ]
+    },
+    {
+      "run": "T1-CL-3",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 2
+      },
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 1,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "33.6px",
+          "chars": 8
+        }
+      ]
+    },
+    {
+      "run": "T3-A-1",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 2
+      },
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 4,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "34px",
+          "chars": 40
+        }
+      ]
+    },
+    {
+      "run": "T3-A-2",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 5,
+        "touch-target<24px": 4
+      },
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 3,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "27px",
+          "chars": 40
+        }
+      ]
+    },
+    {
+      "run": "T3-A-3",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 3
+      },
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 3,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "28px",
+          "chars": 40
+        }
+      ]
+    },
+    {
+      "run": "T3-B-1",
+      "widths": 20,
+      "raw": 20,
+      "defects": {},
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 3,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "30px",
+          "chars": 40
+        }
+      ]
+    },
+    {
+      "run": "T3-B-2",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "touch-target<24px": 4
+      },
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 3,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "31.95px",
+          "chars": 40
+        }
+      ]
+    },
+    {
+      "run": "T3-B-3",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 1
+      },
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 3,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "31.2px",
+          "chars": 40
+        }
+      ]
+    },
+    {
+      "run": "T3-C-1",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "touch-target<24px": 5
+      },
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 1,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "30.35px",
+          "chars": 3
+        },
+        {
+          "el": "h1",
+          "lines": 1,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "30.35px",
+          "chars": 4
+        }
+      ]
+    },
+    {
+      "run": "T3-C-2",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 1
+      },
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 2,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "31.2px",
+          "chars": 12
+        }
+      ]
+    },
+    {
+      "run": "T3-C-3",
+      "widths": 20,
+      "raw": 20,
+      "defects": {},
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 1,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "28.95px",
+          "chars": 3
+        },
+        {
+          "el": "h1",
+          "lines": 1,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "28.95px",
+          "chars": 4
+        }
+      ]
+    },
+    {
+      "run": "T3-CL-1",
+      "widths": 20,
+      "raw": 20,
+      "defects": {},
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 1,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "29.6px",
+          "chars": 3
+        },
+        {
+          "el": "h1",
+          "lines": 1,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "29.6px",
+          "chars": 4
+        }
+      ]
+    },
+    {
+      "run": "T3-CL-2",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "touch-target<24px": 3
+      },
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 1,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "30.55px",
+          "chars": 3
+        },
+        {
+          "el": "h1",
+          "lines": 1,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "30.55px",
+          "chars": 4
+        }
+      ]
+    },
+    {
+      "run": "T3-CL-3",
+      "widths": 20,
+      "raw": 20,
+      "defects": {},
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 1,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "28px",
+          "chars": 11
+        },
+        {
+          "el": "h1",
+          "lines": 1,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "28px",
+          "chars": 4
+        }
+      ]
+    },
+    {
+      "run": "T3b-B-1",
+      "widths": 20,
+      "raw": 20,
+      "defects": {},
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 3,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "31.2px",
+          "chars": 33
+        }
+      ]
+    },
+    {
+      "run": "T3b-B-2",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 1
+      },
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 3,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "30px",
+          "chars": 33
+        }
+      ]
+    },
+    {
+      "run": "T3b-B-3",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 1
+      },
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 3,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "30.4px",
+          "chars": 33
+        }
+      ]
+    },
+    {
+      "run": "T3b-C-1",
+      "widths": 20,
+      "raw": 20,
+      "defects": {},
+      "headings": []
+    },
+    {
+      "run": "T3b-C-2",
+      "widths": 20,
+      "raw": 20,
+      "defects": {},
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 2,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "28px",
+          "chars": 14
+        }
+      ]
+    },
+    {
+      "run": "T3b-C-3",
+      "widths": 20,
+      "raw": 20,
+      "defects": {},
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 2,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "28px",
+          "chars": 14
+        }
+      ]
+    },
+    {
+      "run": "T3b-D-1",
+      "widths": 20,
+      "raw": 20,
+      "defects": {},
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 3,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "28px",
+          "chars": 33
+        }
+      ]
+    },
+    {
+      "run": "T3b-D-2",
+      "widths": 20,
+      "raw": 20,
+      "defects": {},
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 3,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "29.6px",
+          "chars": 33
+        }
+      ]
+    },
+    {
+      "run": "T3b-D-3",
+      "widths": 20,
+      "raw": 20,
+      "defects": {},
+      "headings": [
+        {
+          "el": "h1",
+          "lines": 3,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "30px",
+          "chars": 33
+        }
+      ]
+    },
+    {
+      "run": "T5-A-1",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 33,
+        "korean-mid-word-break": 10
+      },
+      "headings": []
+    },
+    {
+      "run": "T5-A-2",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 34,
+        "korean-mid-word-break": 10
+      },
+      "headings": []
+    },
+    {
+      "run": "T5-A-3",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 30
+      },
+      "headings": []
+    },
+    {
+      "run": "T5-B-1",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 3
+      },
+      "headings": []
+    },
+    {
+      "run": "T5-B-2",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-mid-word-break": 25,
+        "korean-orphan-line": 33
+      },
+      "headings": []
+    },
+    {
+      "run": "T5-B-3",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-mid-word-break": 32,
+        "korean-orphan-line": 35
+      },
+      "headings": []
+    },
+    {
+      "run": "T5-C-1",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-mid-word-break": 24,
+        "korean-orphan-line": 31
+      },
+      "headings": []
+    },
+    {
+      "run": "T5-C-2",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-orphan-line": 10
+      },
+      "headings": []
+    },
+    {
+      "run": "T5-C-3",
+      "widths": 20,
+      "raw": 20,
+      "defects": {
+        "korean-mid-word-break": 32,
+        "korean-orphan-line": 33
+      },
+      "headings": [
+        {
+          "el": "h1.sr",
+          "lines": 1,
+          "midWordBreaks": 0,
+          "samples": [],
+          "orphan": false,
+          "wordBreak": "keep-all",
+          "fontFamily": "Pretendard",
+          "fontSize": "32px",
+          "chars": 4
+        }
+      ]
+    }
+  ],
+  "localStorage": {
+    "pageOrigin": "file://",
+    "storage": "{\"P01\":{\"read\":\"L\",\"awk\":\"R\",\"why\":\"headings sentinel\"}}",
+    "whyInOtherPack": "headings sentinel"
+  },
+  "restoredFont": {
+    "fonts": [
+      {
+        "family": "Pretendard",
+        "weight": "400",
+        "status": "loaded"
+      },
+      {
+        "family": "Pretendard",
+        "weight": "500",
+        "status": "loaded"
+      },
+      {
+        "family": "Pretendard",
+        "weight": "600",
+        "status": "loaded"
+      },
+      {
+        "family": "Pretendard",
+        "weight": "700",
+        "status": "loaded"
+      }
+    ],
+    "h1Size": "42.176px",
+    "activeFont": "Pretendard, system-ui, -apple-system, \"Apple SD Gothic Neo\", \"Noto Sans KR\", sans-serif"
+  }
+}
