@@ -38,6 +38,8 @@
 ## 역할 분담 (2026-10-02~)
 - 구현·실험: ChatGPT(인수인계 문서 `HANDOFF-TO-GPT.md`) / **QA: Claude**(`QA-CHECKLIST.md`) / 최종 판정: 사용자.
 
+- Claude QA 결과(GPT 실사용 산출물): `experiments/eval/claude-qa-2026-10-02/QA-REPORT.md` — 조건부 PASS, 글자 크기 P2 1건.
+
 ## 사용자가 해야 할 일 (최종 판정)
 1. `experiments/eval/human-blind-headings/index.html` — 12쌍, 약 5분. 제목 줄바꿈이 더 자연스러운 쪽 선택. **이 결과가 ko-heading-wrap 유지/삭제를 결정.**
 2. `experiments/eval/human-blind/index.html` — 17쌍, 약 15분(`전체 보기`는 선택). B(스킬 스택) vs C(+확장), A 앵커 3쌍, 일관성 점검용 재출제 2쌍.
