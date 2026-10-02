@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>스텝보드</title>
+<style>
+@font-face{font-family:Pretendard;font-weight:400;font-display:swap;src:url(fonts/Pretendard-Regular.woff2) format("woff2")}
+@font-face{font-family:Pretendard;font-weight:500;font-display:swap;src:url(fonts/Pretendard-Medium.woff2) format("woff2")}
+@font-face{font-family:Pretendard;font-weight:600;font-display:swap;src:url(fonts/Pretendard-SemiBold.woff2) format("woff2")}
+@font-face{font-family:Pretendard;font-weight:700;font-display:swap;src:url(fonts/Pretendard-Bold.woff2) format("woff2")}
+:root{--bg:#fff;--bg2:#f4f6fb;--fg:#14181f;--mut:#4a5565;--line:#dde2ea;--acc:#2f4bd8;--acc-fg:#fff;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1218;--bg2:#171b24;--fg:#eef1f6;--mut:#a9b3c3;--line:#2b3240;--acc:#7f93ff;--acc-fg:#0f1218;--card:#171b24}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.6 Pretendard,system-ui,sans-serif;word-break:keep-all;overflow-wrap:anywhere}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+@media(min-width:720px){.wrap{padding:0 32px}}
+section{padding:48px 0}
+@media(min-width:720px){section{padding:80px 0}}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 20px;border-radius:8px;background:var(--acc);color:var(--acc-fg);font-weight:600;font-size:16px;line-height:1.3;font-family:inherit;border:0;cursor:pointer;text-align:center}
+/* nav */
+header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px}
+.brand{font-weight:700;font-size:20px}
+.toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:0 10px;background:none;border:1px solid var(--line);border-radius:8px;cursor:pointer}
+.toggle span{display:block;height:2px;background:var(--fg)}
+nav ul{list-style:none;margin:0;padding:0}
+#menu{display:none;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 16px 16px}
+#menu.open{display:block}
+#menu li a{display:block;padding:12px 0;border-bottom:1px solid var(--line)}
+#menu li.cta{padding-top:16px}
+#menu li.cta a{border:0;display:flex}
+@media(min-width:1100px){
+ .toggle{display:none}
+ #menu{display:block;position:static;border:0;padding:0;background:none}
+ #menu ul{display:flex;align-items:center;gap:24px}
+ #menu li a{padding:8px 0;border:0;font-weight:500;white-space:nowrap}
+ #menu li.cta{padding:0}
+ #menu li.cta a{padding:8px 20px;white-space:nowrap}
+ .bar{gap:32px}
+}
+/* table */
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{border-collapse:separate;border-spacing:0;width:100%;min-width:760px}
+th,td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);font-size:15px}
+thead th{background:var(--bg2);font-weight:700;font-size:16px}
+tbody th{font-weight:600;background:var(--bg2);position:sticky;left:0;min-width:130px}
+thead th:first-child{position:sticky;left:0;z-index:1}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* cards */
+.grid{list-style:none;margin:0;padding:0;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.grid li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+.grid h3{margin:0 0 8px;font-size:18px;line-height:1.4}
+.grid p{margin:0;color:var(--mut)}
+#features{background:var(--bg2)}
+/* form */
+form{display:grid;gap:20px;max-width:640px;margin:0 auto}
+label,.lbl{display:block;font-weight:600;margin-bottom:6px}
+input[type=text],input[type=email],select,textarea{width:100%;min-height:44px;padding:10px 12px;font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:8px}
+textarea{min-height:140px;resize:vertical}
+.check{display:flex;gap:10px;align-items:flex-start}
+.check input{width:22px;height:22px;margin:2px 0 0;flex:none}
+.check label{margin:0;font-weight:400}
+form .btn{width:100%}
+@media(min-width:720px){form .btn{width:auto;justify-self:start}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap bar">
+  <a class="brand" href="#">스텝보드</a>
+  <button class="toggle" type="button" aria-label="메뉴" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  <nav id="menu" aria-label="주 메뉴">
+   <ul>
+    <li><a href="#">제품 소개</a></li>
+    <li><a href="#features">기능</a></li>
+    <li><a href="#pricing">요금제</a></li>
+    <li><a href="#">고객 사례</a></li>
+    <li><a href="#">보안 및 규정 준수</a></li>
+    <li><a href="#">개발자 문서</a></li>
+    <li><a href="#contact">고객 지원</a></li>
+    <li class="cta"><a class="btn" href="#contact">무료로 시작하기</a></li>
+   </ul>
+  </nav>
+ </div>
+</header>
+<main>
+<section id="pricing" aria-label="요금제">
+ <div class="wrap">
+  <div class="scroll" tabindex="0" role="region" aria-label="요금제 비교표">
+  <table>
+   <thead><tr><th scope="col"><span class="sr">항목</span></th><th scope="col">스타터</th><th scope="col">팀</th><th scope="col">비즈니스</th><th scope="col">엔터프라이즈</th></tr></thead>
+   <tbody>
+    <tr><th scope="row">월 요금 (사용자당)</th><td>무료</td><td>₩9,900</td><td>₩19,900</td><td>별도 문의</td></tr>
+    <tr><th scope="row">프로젝트 수</th><td>3개</td><td>무제한</td><td>무제한</td><td>무제한</td></tr>
+    <tr><th scope="row">저장 공간</th><td>5GB</td><td>100GB</td><td>1TB</td><td>맞춤 설정</td></tr>
+    <tr><th scope="row">팀 구성원</th><td>최대 5명</td><td>최대 50명</td><td>최대 500명</td><td>제한 없음</td></tr>
+    <tr><th scope="row">승인 워크플로</th><td>—</td><td>기본</td><td>다단계 승인</td><td>다단계 승인 + 감사 로그</td></tr>
+    <tr><th scope="row">외부 서비스 연동</th><td>3개</td><td>20개</td><td>100개 이상</td><td>100개 이상 + 전용 커넥터</td></tr>
+    <tr><th scope="row">단일 로그인(SSO)</th><td>—</td><td>—</td><td>지원</td><td>지원 (SAML, SCIM)</td></tr>
+    <tr><th scope="row">고객 지원</th><td>커뮤니티</td><td>이메일 (영업일 2일 이내)</td><td>이메일·채팅 (4시간 이내)</td><td>전담 매니저 및 24시간 대응</td></tr>
+   </tbody>
+  </table>
+  </div>
+ </div>
+</section>
+<section id="features" aria-label="기능">
+ <div class="wrap">
+  <ul class="grid">
+   <li><h3>업무 보드</h3><p>칸반과 타임라인을 한 화면에서 전환합니다.</p></li>
+   <li><h3>자동화 규칙</h3><p>조건에 따라 담당자 지정과 상태 변경을 자동으로 처리합니다.</p></li>
+   <li><h3>승인 요청</h3><p>검토가 필요한 항목을 지정된 순서에 따라 승인자에게 전달합니다.</p></li>
+   <li><h3>외부 서비스 연동을 통한 알림 통합 관리</h3><p>메신저, 이메일, 캘린더의 알림을 한곳에서 확인합니다.</p></li>
+   <li><h3>리포트</h3><p>팀별 처리 속도와 지연 항목을 주간 단위로 요약합니다.</p></li>
+   <li><h3>템플릿</h3><p>반복되는 업무 구조를 저장해 새 프로젝트에 바로 적용합니다.</p></li>
+   <li><h3>권한 관리</h3><p>프로젝트와 항목 단위로 열람·편집 권한을 구분합니다.</p></li>
+   <li><h3>감사 로그 및 변경 이력 추적</h3><p>누가 언제 무엇을 바꿨는지 기록으로 남깁니다.</p></li>
+  </ul>
+ </div>
+</section>
+<section id="contact" aria-label="문의">
+ <div class="wrap">
+  <form action="#" method="post">
+   <div><label for="n">이름(필수)</label><input id="n" name="name" type="text" required autocomplete="name"></div>
+   <div><label for="e">회사 이메일(필수)</label><input id="e" name="email" type="email" required autocomplete="email"></div>
+   <div><label for="c">회사명</label><input id="c" name="company" type="text" autocomplete="organization"></div>
+   <div><label for="s">팀 규모</label>
+    <select id="s" name="size"><option value="" selected></option><option>1–10</option><option>11–50</option><option>51–200</option><option>201명 이상</option></select></div>
+   <div><label for="m">문의 내용</label><textarea id="m" name="message"></textarea></div>
+   <div class="check"><input id="a" name="agree" type="checkbox"><label for="a">개인정보 수집·이용에 동의합니다</label></div>
+   <button class="btn" type="submit">문의 보내기</button>
+  </form>
+ </div>
+</section>
+</main>
+<script>
+var b=document.querySelector('.toggle'),m=document.getElementById('menu');
+b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+m.addEventListener('click',function(e){if(e.target.closest('a')){m.classList.remove('open');b.setAttribute('aria-expanded',false)}});
+</script>
+</body>
+</html>

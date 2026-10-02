@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>스텝보드</title>
+<style>
+@font-face{font-family:Pretendard;font-weight:400;font-display:swap;src:url(fonts/Pretendard-Regular.woff2) format("woff2")}
+@font-face{font-family:Pretendard;font-weight:500;font-display:swap;src:url(fonts/Pretendard-Medium.woff2) format("woff2")}
+@font-face{font-family:Pretendard;font-weight:600;font-display:swap;src:url(fonts/Pretendard-SemiBold.woff2) format("woff2")}
+@font-face{font-family:Pretendard;font-weight:700;font-display:swap;src:url(fonts/Pretendard-Bold.woff2) format("woff2")}
+:root{--bg:#f7f8fa;--surface:#fff;--text:#1a1d24;--muted:#4b5363;--line:#dde1e8;--accent:#2f5bea;--accent-text:#fff;--accent-soft:#eef2ff;--focus:#1b3fb8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1218;--surface:#181c25;--text:#eef0f4;--muted:#aab2c2;--line:#2c3342;--accent:#6f93ff;--accent-text:#0b1020;--accent-soft:#1d2540;--focus:#9db5ff}}
+:root[data-theme="dark"]{--bg:#0f1218;--surface:#181c25;--text:#eef0f4;--muted:#aab2c2;--line:#2c3342;--accent:#6f93ff;--accent-text:#0b1020;--accent-soft:#1d2540;--focus:#9db5ff}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Pretendard,system-ui,sans-serif;font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:anywhere}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+@media(min-width:768px){.wrap{padding:0 32px}}
+
+header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px 16px;padding-top:10px;padding-bottom:10px}
+.brand{font-weight:700;font-size:20px;margin-right:auto;padding:6px 0}
+.nav ul{display:flex;flex-wrap:wrap;gap:0 4px;list-style:none;margin:0;padding:0;order:3;width:100%}
+.nav li a{display:block;padding:8px 10px;min-height:44px;line-height:28px;color:var(--muted);font-weight:500;font-size:15px;border-radius:8px}
+.nav li a:hover{background:var(--accent-soft);color:var(--text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:10px;background:var(--accent);color:var(--accent-text);font:600 15px/1 Pretendard,system-ui,sans-serif;border:0;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+@media(min-width:1024px){.nav{flex-wrap:nowrap}.nav ul{order:0;width:auto;flex:1;gap:0 2px;margin-left:8px}.brand{margin-right:0}}
+
+section{padding:40px 0}
+@media(min-width:768px){section{padding:64px 0}}
+
+.table-scroll{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:14px;-webkit-overflow-scrolling:touch}
+table{border-collapse:separate;border-spacing:0;width:100%;min-width:720px;font-size:15px}
+th,td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+thead th{font-weight:700;background:var(--accent-soft);font-size:16px}
+tbody th{font-weight:600;background:var(--surface);position:sticky;left:0;min-width:130px;box-shadow:1px 0 0 var(--line)}
+thead th:first-child{position:sticky;left:0;box-shadow:1px 0 0 var(--line)}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+td{color:var(--muted)}
+@media(max-width:480px){th,td{padding:12px}tbody th{min-width:110px}}
+
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:600px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.cards{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 20px}
+.card h3{margin:0 0 8px;font-size:18px;line-height:1.4;font-weight:700}
+.card p{margin:0;color:var(--muted);font-size:15px}
+
+form{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 16px;display:grid;gap:18px;max-width:720px;margin:0 auto}
+@media(min-width:768px){form{padding:32px}}
+.field{display:grid;gap:6px}
+label{font-weight:600;font-size:15px}
+input[type=text],input[type=email],select,textarea{width:100%;min-height:48px;padding:10px 12px;font:400 16px/1.5 Pretendard,system-ui,sans-serif;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:10px}
+textarea{min-height:140px;resize:vertical}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:500}
+.check input{width:22px;height:22px;margin:1px 0 0;flex:none;accent-color:var(--accent)}
+form .btn{width:100%}
+@media(min-width:768px){form .btn{width:auto;justify-self:start;min-width:180px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">스텝보드</a>
+    <ul>
+      <li><a href="#top">제품 소개</a></li>
+      <li><a href="#features">기능</a></li>
+      <li><a href="#pricing">요금제</a></li>
+      <li><a href="#top">고객 사례</a></li>
+      <li><a href="#top">보안 및 규정 준수</a></li>
+      <li><a href="#top">개발자 문서</a></li>
+      <li><a href="#contact">고객 지원</a></li>
+    </ul>
+    <a class="btn" href="#contact">무료로 시작하기</a>
+  </div>
+</header>
+
+<main id="top">
+<section id="pricing" aria-label="요금제">
+  <div class="wrap">
+    <div class="table-scroll" tabindex="0" role="region" aria-label="요금제">
+      <table>
+        <thead><tr><th scope="col"></th><th scope="col">스타터</th><th scope="col">팀</th><th scope="col">비즈니스</th><th scope="col">엔터프라이즈</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">월 요금 (사용자당)</th><td>무료</td><td>₩9,900</td><td>₩19,900</td><td>별도 문의</td></tr>
+          <tr><th scope="row">프로젝트 수</th><td>3개</td><td>무제한</td><td>무제한</td><td>무제한</td></tr>
+          <tr><th scope="row">저장 공간</th><td>5GB</td><td>100GB</td><td>1TB</td><td>맞춤 설정</td></tr>
+          <tr><th scope="row">팀 구성원</th><td>최대 5명</td><td>최대 50명</td><td>최대 500명</td><td>제한 없음</td></tr>
+          <tr><th scope="row">승인 워크플로</th><td>—</td><td>기본</td><td>다단계 승인</td><td>다단계 승인 + 감사 로그</td></tr>
+          <tr><th scope="row">외부 서비스 연동</th><td>3개</td><td>20개</td><td>100개 이상</td><td>100개 이상 + 전용 커넥터</td></tr>
+          <tr><th scope="row">단일 로그인(SSO)</th><td>—</td><td>—</td><td>지원</td><td>지원 (SAML, SCIM)</td></tr>
+          <tr><th scope="row">고객 지원</th><td>커뮤니티</td><td>이메일 (영업일 2일 이내)</td><td>이메일·채팅 (4시간 이내)</td><td>전담 매니저 및 24시간 대응</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="features" aria-label="기능">
+  <div class="wrap">
+    <ul class="cards">
+      <li class="card"><h3>업무 보드</h3><p>칸반과 타임라인을 한 화면에서 전환합니다.</p></li>
+      <li class="card"><h3>자동화 규칙</h3><p>조건에 따라 담당자 지정과 상태 변경을 자동으로 처리합니다.</p></li>
+      <li class="card"><h3>승인 요청</h3><p>검토가 필요한 항목을 지정된 순서에 따라 승인자에게 전달합니다.</p></li>
+      <li class="card"><h3>외부 서비스 연동을 통한 알림 통합 관리</h3><p>메신저, 이메일, 캘린더의 알림을 한곳에서 확인합니다.</p></li>
+      <li class="card"><h3>리포트</h3><p>팀별 처리 속도와 지연 항목을 주간 단위로 요약합니다.</p></li>
+      <li class="card"><h3>템플릿</h3><p>반복되는 업무 구조를 저장해 새 프로젝트에 바로 적용합니다.</p></li>
+      <li class="card"><h3>권한 관리</h3><p>프로젝트와 항목 단위로 열람·편집 권한을 구분합니다.</p></li>
+      <li class="card"><h3>감사 로그 및 변경 이력 추적</h3><p>누가 언제 무엇을 바꿨는지 기록으로 남깁니다.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact" aria-label="문의">
+  <div class="wrap">
+    <form action="#" method="post">
+      <div class="field"><label for="name">이름(필수)</label><input id="name" name="name" type="text" required autocomplete="name"></div>
+      <div class="field"><label for="email">회사 이메일(필수)</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="company">회사명</label><input id="company" name="company" type="text" autocomplete="organization"></div>
+      <div class="field"><label for="size">팀 규모</label>
+        <select id="size" name="size"><option value="" selected></option><option>1–10</option><option>11–50</option><option>51–200</option><option>201명 이상</option></select></div>
+      <div class="field"><label for="msg">문의 내용</label><textarea id="msg" name="message"></textarea></div>
+      <label class="check"><input type="checkbox" name="consent" required><span>개인정보 수집·이용에 동의합니다</span></label>
+      <button class="btn" type="submit">문의 보내기</button>
+    </form>
+  </div>
+</section>
+</main>
+</body>
+</html>
